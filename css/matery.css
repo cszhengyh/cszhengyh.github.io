@@ -34,7 +34,8 @@
 }
 
 body {
-    background-color: #eaeaea;
+    /*background-color: #eaeaea;*/
+    background: url("https://ae01.alicdn.com/kf/H18a4b998752a4ae68b8e85d432a5aef0l.png"), url("https://img-blog.csdnimg.cn/20200701175050934.jpg?x-oss-process=image") 0px 0px;
     margin: 0;
     color: #34495e;
 }
