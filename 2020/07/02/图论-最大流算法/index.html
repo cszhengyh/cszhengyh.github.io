@@ -486,14 +486,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2020-07-02
+                    2020-07-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    299
+                    387
                 </div>
                 
 
@@ -509,23 +509,22 @@
 <hr>
 <h3 id="重要概念与定理"><a href="#重要概念与定理" class="headerlink" title="重要概念与定理"></a>重要概念与定理</h3><ul>
 <li>可行流<blockquote>
-<p>一条边的流量小于等于容量且对于其两边节点合法, 我们就称这条边为可行流.</p>
+<p>对于整个无向图来说, 一条从起点到终点的路径, 路径中的所有弧满足流量必须小于等于容量并且使得其两端点合法, 则我们称这条路为可行流.</p>
 </blockquote>
 </li>
 <li>弧(边)<blockquote>
 <ol>
 <li>饱和弧(容量 = 流量)</li>
-</ol>
-</blockquote>
-</li>
-</ul>
-<ol start="2">
 <li>非饱和弧(流量 &lt; 容量)</li>
 <li>零流弧(无流量)</li>
 <li>非零流弧(流量 &gt; 0)</li>
 </ol>
-<ul>
-<li>增广链(该链中所有的流都是可行流)<br>定义: 对于起点到终点的一条链(链中的边是没有方向的见图解举例的链, 链是针对整个图来说的, 而路径是针对一个特定传输情况来说的), 其中的所有正向弧都非饱和, 所有反向弧都非零, 则我们称这条链为增广链.<br><img src="https://img-blog.csdnimg.cn/20200702233243695.png?x-oss-process=image" alt="图解"></li>
+</blockquote>
+</li>
+<li>增广链(基于可行流来说的)<blockquote>
+<p>定义: 对于起点到终点的一条链(链中的边是没有方向的见图解举例的链, 链是针对整个图来说的, 而路径是针对一个特定传输情况来说的), 其中的所有正向弧都非饱和, 所有反向弧都非零, 则我们称这条链为增广链.<br><img src="https://img-blog.csdnimg.cn/20200702233243695.png?x-oss-process=image" alt="图解"><br>定理: 对于一条可行流来说, 如果其为增广链, 那么其最大流还能得到增广(正向弧加, 反向弧减, 所以要求正向弧非饱和, 反向弧非0), 使得其单位时间的流量更大.</p>
+</blockquote>
+</li>
 </ul>
 <hr>
 <h3 id="现实应用"><a href="#现实应用" class="headerlink" title="现实应用"></a>现实应用</h3><p>计算机交互的路径选择</p>
