@@ -486,14 +486,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2020-07-03
+                    2020-07-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.5k
+                    1.6k
                 </div>
                 
 
@@ -550,7 +550,7 @@
 <h3 id="现实应用"><a href="#现实应用" class="headerlink" title="现实应用"></a>现实应用</h3><ol>
 <li>计算机交互</li>
 <li>电路输送 -&gt; 最大流<br><img src="https://img-blog.csdnimg.cn/20200703215306374.png?x-oss-process=image" alt="虚拟源点在最大流问题中的应用 -&gt; 类似其他图论问题, 节点含权值时想到虚拟源点"></li>
-<li>攻防问题 -&gt; 最小截<br><img src="https://img-blog.csdnimg.cn/20200703232122607.png?x-oss-process=image" alt="题目"><br>我们将点两两之间的多条路转化为一条路, 路的数量转化为路的权重, 截断路使得两个点不能连通, 即最小截集. 图的最大流就等于最小截集的截量, 权值和即路数量的和, 所以问题转化为了求图的最大流.<br>陆地岛屿单向边: A, F换一下位置就行了, 根据题意只需求一边即可.<br><img src="https://img-blog.csdnimg.cn/20200703232457936.png?x-oss-process=image" alt="图论问题中的建图及问题转换"></li>
+<li>攻防问题 -&gt; 最小截<br><img src="https://img-blog.csdnimg.cn/20200703232122607.png?x-oss-process=image" alt="题目"><br>我们将点两两之间的多条路转化为一条路, 路的数量转化为路的权重, 截断路使得两个点不能连通, 即最小截集. 图的最大流就等于最小截集的截量, 权值和即路数量的和, 所以问题转化为了求图的最大流.<br>陆地岛屿单向边: A, F换一下位置就行了, 根据题意只需求一边即可.<br>而对于具体的截集边, 我们在遍历最大流方案下的所有已标记点集中的点, 分别遍历其出边, 如果e[i]未被标记则将i输出即可.<br><img src="https://img-blog.csdnimg.cn/20200703232457936.png?x-oss-process=image" alt="图论问题中的建图及问题转换"></li>
 <li>旅行问题 -&gt; 最小截<br><img src="https://img-blog.csdnimg.cn/20200703235648480.png?x-oss-process=image" alt="题目"><br>车辆必过的边的集合其实就是截集, 这里的截量就是费用, 所以这道题就是求最小截, 即最大流.</li>
 </ol>
 <hr>
