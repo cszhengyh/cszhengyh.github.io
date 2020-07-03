@@ -493,7 +493,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    709
+                    724
                 </div>
                 
 
@@ -529,13 +529,17 @@
 <p>定义:</p>
 <ol>
 <li>截集是指我们将图中的节点分为两个集合(V1, V2, V1 ∩ V2为空集, V1 ∪ V2为V), 并且S位于V1, E位于V2, 所有由V1指向V2的有向边的集合, 我们称之为该划分下的图的截集.</li>
-<li>截量就是指截集中的所有边的容量之和.<br>性质: 在图中删去截集之后, 起点到终点将不存在路.<br>定理1(<code>最大流最小截定理</code>): 网络的最大流量等于网络的最小截量.<br>定理2: 网络中的任一可行流的流量小于等于在其方案下的任一截集的截量. (那么该图的最大流量就等于最小的截量, 自然也就小于了其他截集的截量了)<br>证明:<br><img src="https://img-blog.csdnimg.cn/20200703144932652.png?x-oss-process=image" alt="定理2"></li>
+<li>截量就是指截集中的所有边的容量之和.<br>性质: 在图中删去截集之后, 起点到终点将不存在路(不连通 -&gt; 割边(桥)).<br>定理1(<code>最大流最小截定理</code>): 网络的最大流量等于网络的最小截量.<br>定理2: 网络中的任一可行流的流量小于等于在其方案下的任一截集的截量. (那么该图的最大流量就等于最小的截量, 自然也就小于了其他截集的截量了)<br>证明:<br><img src="https://img-blog.csdnimg.cn/20200703144932652.png?x-oss-process=image" alt="定理2"></li>
 </ol>
 </blockquote>
 </li>
 </ul>
 <hr>
+<h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><hr>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<hr>
 <h3 id="现实应用"><a href="#现实应用" class="headerlink" title="现实应用"></a>现实应用</h3><p>计算机交互</p>
+<hr>
 <h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://www.youtube.com/watch?v=evDZ6J28l_E" target="_blank" rel="noopener">Portal</a></p>
 
             </div>
