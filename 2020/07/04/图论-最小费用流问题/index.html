@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="图论-网络最大流与最小截问题, Zyh&#39;s blog">
+    <meta name="keywords" content="图论-最小费用流问题, Zyh&#39;s blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -18,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>图论-网络最大流与最小截问题 | Zyh&#39;s blog</title>
+    <title>图论-最小费用流问题 | Zyh&#39;s blog</title>
     <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/1.jpg">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/libs/awesome/css/all.css">
@@ -324,12 +324,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">图论-网络最大流与最小截问题</h1>
+                    <h1 class="description center-align post-title">图论-最小费用流问题</h1>
                 </div>
             </div>
         </div>
@@ -446,16 +446,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/graph-theory/">
-                                <span class="chip bg-color">graph theory</span>
+                            <a href="/tags/%E5%9B%BE%E8%AE%BA/">
+                                <span class="chip bg-color">图论</span>
                             </a>
                         
-                            <a href="/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/">
-                                <span class="chip bg-color">最大流</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%9C%80%E5%B0%8F%E6%88%AA/">
-                                <span class="chip bg-color">最小截</span>
+                            <a href="/tags/%E8%B4%B9%E7%94%A8%E6%B5%81/">
+                                <span class="chip bg-color">费用流</span>
                             </a>
                         
                     </div>
@@ -479,7 +475,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-07-02
+                    2020-07-04
                 </div>
                 
 
@@ -493,7 +489,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.6k
+                    356
                 </div>
                 
 
@@ -505,58 +501,19 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h3><p>对于一张图, 我们对于每条边有两个特性, 单位时间能传输的最大流量(容量)和流量, 流量必须小于等于容量并且对于每个点来说, 流入的流量和与流出的流量和必须相等. 最大流算法就是解决图中一个点到另一个点的单位时间内能传输的最大流量. </p>
+                <p>写在前面,<br>费用流也称作最小费用流. 给定流量的问题称为最小费用流问题, 给定流量为最大流的问题我们称为最小费用最大流问题.</p>
+<h3 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h3><p>求一个图中, 一个点到另一个点, 在保证最大流量的情况下, 求最小费用. 图中每条边有三个特性, 容量, 单位流量所需费用以及当前流量.</p>
 <hr>
-<h3 id="重要概念与定理"><a href="#重要概念与定理" class="headerlink" title="重要概念与定理"></a>重要概念与定理</h3><ul>
-<li>可行流<blockquote>
-<p>可行流是针对整个图来说的, 对于整个无向图来说, 所有弧满足流量必须小于等于容量并且使得其两端点合法(出入相等), 则我们称从起点流向终点的流量可行.</p>
-</blockquote>
-</li>
-<li>弧(边)<blockquote>
-<ol>
-<li>饱和弧(容量 = 流量)</li>
-<li>非饱和弧(流量 &lt; 容量)</li>
-<li>零流弧(无流量)</li>
-<li>非零流弧(流量 &gt; 0)</li>
-</ol>
-</blockquote>
-</li>
-<li>增广链(基于图当前的一种可行流来说的)<blockquote>
-<p>定义: 对于一种可行流方案来说, 起点到终点的一条链(链中的边是没有方向的见图解举例的链, 链是针对整个图来说的, 而路径是针对一个特定传输情况来说的), 其中的所有正向弧都非饱和, 所有反向弧都非零, 则我们称这条链为增广链.<br><img src="https://img-blog.csdnimg.cn/20200702233243695.png?x-oss-process=image" alt="图解"><br>定理1: 对于一种可行流方案来说, 如果当前方案中还存在增广链, 那么其总流量将还能得到增广(<strong>正向弧加流量, 反向弧减流量</strong>, 所以要求正向弧非饱和, 反向弧非0), 使得其单位时间的流量更大.<br>定理2: 动态相互影响, 当当前可行流方案中的一条增广链被增广为非增广链时, 那么图中调整前的其他增广链, 现在就可能不是增广链了.<br>定理3: 当当前可行流方案中不再存在增广链, 那么该图起点的流出流量就必定为最大流.</p>
-</blockquote>
-</li>
-<li>截集与截量<blockquote>
-<p>定义:</p>
-<ol>
-<li>截集是指我们将图中的节点分为两个集合(V1, V2, V1 ∩ V2为空集, V1 ∪ V2为V), 并且S位于V1, E位于V2, 所有由V1指向V2的有向边的集合, 我们称之为该划分下的图的截集.</li>
-<li>截量就是指截集中的所有边的容量之和.<br>性质: 在图中删去截集之后, 起点到终点将不存在路(不连通 -&gt; 割边(桥)).<br>定理1(<code>最大流最小截(割)定理</code>): 网络的最大流量等于网络的最小截量.<br>定理2: 网络中的任一可行流的流量小于等于在其方案下的任一截集的截量. (那么该图的最大流量就等于最小的截量, 自然也就小于了其他截集的截量了)<br>证明:<br><img src="https://img-blog.csdnimg.cn/20200703144932652.png?x-oss-process=image" alt="定理2"></li>
-</ol>
-</blockquote>
-</li>
-</ul>
-<hr>
-<h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><ul>
-<li>标号法(EK算法)求解最小截集与最大流<blockquote>
-<ol>
-<li><strong>算法思想</strong>: 通过找当前可行流中的增广链并对其增广, 直到可行流中无增广链为止, 那么当前可行流为最大流, 且以已标记点为V1, 未标记点为V2, 由V1连向V2的所有边的集合即最小截集.</li>
-<li><strong>算法实现</strong>: 对于一般的最大流问题, 我们开始的每条边的流量是没有给出的, 只给出了容量, 然而标记算法求最大流, 是通过增广链增广的, 所以我们开始的图的流量必须保证是一个可行流, 那么我们怎么构造一个尽量接近最大流的初始可行流呢? 对于每条边赋予尽量大的合法流量或者把所有的边流量全初始化为0, 即零流(但是不推荐, 因为这样很远离最大可行流的流量, 当前可行流流量为0). 构造完之后, 对于每个走过的点我们记录下两个<strong>特性</strong>: 1. 最大可调整流量, 2. 其上一个点的编号, 首先我们将起点标号为(∞, Vs), 我们对标号点集的所有弧(<code>除开父边</code>)进行延伸, 检查是否存在一条未标记点流向它的非零反向弧或流出至未标记点的非饱和弧(<code>增广链中对弧的要求</code>). 有的话, 我们选择可以更快走到终点的点, 然后标记该点, 继续寻找点集的弧, 当点集的所有弧都不符合的时候, 此时的可行流为最大流, 否则直到终点被标记. 此时被标记的一条链则为一条增广链. 我们对其进行增广, 那么如何增广呢? 我们对每条弧的流量<strong>正加反减</strong>流量x, x为增广链中的所有可调整流量y(正向弧(<code>当前节点(已标号点集)指向未标号节点</code>): 容量 - 当前流量, 反向弧(<code>未标号节点指向当前节点</code>): 当前流量)的绝对值的最小值.</li>
-</ol>
-</blockquote>
-</li>
-</ul>
-<hr>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<hr>
-<h3 id="现实应用"><a href="#现实应用" class="headerlink" title="现实应用"></a>现实应用</h3><ol>
-<li>计算机交互</li>
-<li>电路输送 -&gt; 最大流<br><img src="https://img-blog.csdnimg.cn/20200703215306374.png?x-oss-process=image" alt="虚拟源点在最大流问题中的应用 -&gt; 类似其他图论问题, 节点含权值时想到虚拟源点"></li>
-<li>攻防问题 -&gt; 最小截<br><img src="https://img-blog.csdnimg.cn/20200703232122607.png?x-oss-process=image" alt="题目"><br>我们将点两两之间的多条路转化为一条路, 路的数量转化为路的权重, 截断路使得两个点不能连通, 即最小截集. 图的最大流就等于最小截集的截量, 权值和即路数量的和, 所以问题转化为了求图的最大流.<br>陆地岛屿单向边: A, F换一下位置就行了, 根据题意只需求一边即可.<br>而对于具体的截集边, 我们在遍历最大流方案下的所有已标记点集中的点, 分别遍历其出边, 如果e[i]未被标记则将i输出即可.<br><img src="https://img-blog.csdnimg.cn/20200703232457936.png?x-oss-process=image" alt="图论问题中的建图及问题转换"></li>
-<li>旅行问题 -&gt; 最小截<br><img src="https://img-blog.csdnimg.cn/20200703235648480.png?x-oss-process=image" alt="题目"><br>车辆必过的边的集合其实就是截集, 这里的截量就是费用, 所以这道题就是求最小截, 即最大流.</li>
+<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><ol>
+<li>对于这类问题, 我们需要将图分解成两个图, 一个为费用图, 一个为可行流图.</li>
+<li>我们对费用图跑最短路算法, 求出最短路径.</li>
+<li>然后我们以最短路径(可行流中的一条增广链, 因为初始为0流嘛), 对可行流图进行增广, 增广至该路径为非增广链.</li>
+<li>在费用图中擦去最短路径中的正权饱和弧, 再求最短路径(<code>最短路中必然不包含负权边</code>), 并对其进行增广.</li>
+<li>重复2, 3, 4操作直至找不到S到E的最短路径, 即无增广链, 即当前流量为最大流, 因为饱和的正权边都被擦去了, 然后路径中必不包含负权边, 那么这条链必然是增广链(<code>最小费用最大流</code>)/流量等于给出流量(<code>最小费用流</code>)为止.</li>
 </ol>
 <hr>
-<h3 id="问题拓展"><a href="#问题拓展" class="headerlink" title="问题拓展"></a>问题拓展</h3><p>如何通过扩容扩大最大流?<br>在最大流问题中, 我们最大流 = 最小截, 所以扩大最大流就是扩大最小截集的截量, 即截集中的边的容量.</p>
-<hr>
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://www.youtube.com/watch?v=evDZ6J28l_E" target="_blank" rel="noopener">Portal</a></p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><hr>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://www.bilibili.com/video/BV1cE411V7gB?from=search&seid=15369341044568953358" target="_blank" rel="noopener">Portal</a></p>
 
             </div>
             <hr/>
@@ -582,7 +539,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://zyh.programlife.top/2020/07/02/%E5%9B%BE%E8%AE%BA-%E6%9C%80%E5%A4%A7%E6%B5%81%E7%AE%97%E6%B3%95/">https://zyh.programlife.top/2020/07/02/%E5%9B%BE%E8%AE%BA-%E6%9C%80%E5%A4%A7%E6%B5%81%E7%AE%97%E6%B3%95/</a>
+                    <a href="https://zyh.programlife.top/2020/07/04/%E5%9B%BE%E8%AE%BA-%E6%9C%80%E5%B0%8F%E8%B4%B9%E7%94%A8%E6%B5%81%E9%97%AE%E9%A2%98/">https://zyh.programlife.top/2020/07/04/%E5%9B%BE%E8%AE%BA-%E6%9C%80%E5%B0%8F%E8%B4%B9%E7%94%A8%E6%B5%81%E9%97%AE%E9%A2%98/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -620,16 +577,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/graph-theory/">
-                                    <span class="chip bg-color">graph theory</span>
+                                <a href="/tags/%E5%9B%BE%E8%AE%BA/">
+                                    <span class="chip bg-color">图论</span>
                                 </a>
                             
-                                <a href="/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/">
-                                    <span class="chip bg-color">最大流</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%9C%80%E5%B0%8F%E6%88%AA/">
-                                    <span class="chip bg-color">最小截</span>
+                                <a href="/tags/%E8%B4%B9%E7%94%A8%E6%B5%81/">
+                                    <span class="chip bg-color">费用流</span>
                                 </a>
                             
                         </div>
@@ -1060,9 +1013,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2020/07/04/%E5%9B%BE%E8%AE%BA-%E6%9C%80%E5%B0%8F%E8%B4%B9%E7%94%A8%E6%B5%81%E9%97%AE%E9%A2%98/">
                     <div class="card-image">
@@ -1081,9 +1035,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-04
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1096,6 +1050,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1118,24 +1073,24 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/06/28/%E5%9B%BE%E7%9A%84%E5%89%B2%E8%BE%B9%E6%B1%82%E6%B3%95%E6%B1%87%E6%80%BB-%E5%9F%BA%E5%87%86-%E5%B9%B6%E6%9F%A5%E9%9B%86-Tarjan%E7%AE%97%E6%B3%95-%E5%8F%8A%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/">
+                <a href="/2020/07/02/%E5%9B%BE%E8%AE%BA-%E6%9C%80%E5%A4%A7%E6%B5%81%E7%AE%97%E6%B3%95/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/16.jpg" class="responsive-img" alt="图的割边求法汇总(基准, 并查集, Tarjan算法)及代码实现">
+                        <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/21.jpg" class="responsive-img" alt="图论-网络最大流与最小截问题">
                         
-                        <span class="card-title">图的割边求法汇总(基准, 并查集, Tarjan算法)及代码实现</span>
+                        <span class="card-title">图论-网络最大流与最小截问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            If you want to read this article, please go to About page, scan wechat or alipay QR code, pay 100 yuan and contact blogger through QQ, then you can get the passsword and read the article.
+                            解决问题对于一张图, 我们对于每条边有两个特性, 单位时间能传输的最大流量(容量)和流量, 流量必须小于等于容量并且对于每个点来说, 流入的流量和与流出的流量和必须相等. 最大流算法就是解决图中一个点到另一个点的单位时间内能传输的最大流量.
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-02
                             </span>
                         <span class="publish-author">
                             
@@ -1156,8 +1111,12 @@
                         <span class="chip bg-color">graph theory</span>
                     </a>
                     
-                    <a href="/tags/cut-edge/">
-                        <span class="chip bg-color">cut-edge</span>
+                    <a href="/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/">
+                        <span class="chip bg-color">最大流</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9C%80%E5%B0%8F%E6%88%AA/">
+                        <span class="chip bg-color">最小截</span>
                     </a>
                     
                 </div>
@@ -1332,6 +1291,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 
