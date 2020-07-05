@@ -490,14 +490,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2020-07-04
+                    2020-07-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.5k
+                    1.6k
                 </div>
                 
 
@@ -518,7 +518,7 @@
 <h3 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h3><p>对于这道题(暴力的话枚举母串26^n就直接炸了)。看到子串匹配问题我们会想到KMP,  AC自动机, 由于匹配子串, 所以我们不必用到AC自动机, 用KMP就好。然后就是本题最难的地方了, 这种数据范围很大, 暴力枚举不出来并且四不像的题, 要么dp, 要么思维推公式(最后发现组合数学不行有重复), 就只能dp了。但是由于dp我们枚举状态的话, 5e13炸了, 所以我们需要用到考虑到是否可能用矩阵快速幂加速递推呢? 将n降成logn枚举状态, 时间复杂度就够了。</p>
 <hr>
 <h3 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h3><h4 id="状态表示与集合划分"><a href="#状态表示与集合划分" class="headerlink" title="状态表示与集合划分"></a><code>状态表示与集合划分</code></h4><p>这种字串匹配的dp问题, 见过了我们就知道状态怎么表示, 没见过就不知道. 这里我们枚举母串长度与母串当前位置匹配到了子串的哪一位, 用f[i][j]表示当考虑到母串的第i位时, 母串匹配到了子串的第j个数的方案数。<br>母串长度为n的所有方案, 我们可以根据它与子串的匹配数来划分。<br><strong>答案 = 母串长度为n的所有方案数(全排列) - f[n][i] (0 &lt; i &lt; len, 未匹配完的方案数, 最多也就只能匹配len个字符), 剩下的就是answer了。</strong><br><strong>Notice</strong>: f[n][len]表示的是长度为n且后缀匹配完了子串(也就是从最后一个字母向前长度为len的字符串 == 子串这一种情况)的母串(不包含中间的包含子串的长度为n的母串)方案数, 所以f[n][len]并不是答案。我们应该用全排列数量减去所有不能匹配完(当中间匹配不完的方案将会被归到f[i + 1][0]里面去, 所以不能匹配完的方案一定是全的)的方案。</p>
-<h4 id="状态转移"><a href="#状态转移" class="headerlink" title="状态转移"></a><code>状态转移</code></h4><ol>
+<h4 id="状态转移-根据最后加上这个字母-26个-最后产生的匹配数的不同划分长度为i-1的字母串集合"><a href="#状态转移-根据最后加上这个字母-26个-最后产生的匹配数的不同划分长度为i-1的字母串集合" class="headerlink" title="状态转移(根据最后加上这个字母(26个)最后产生的匹配数的不同划分长度为i + 1的字母串集合)"></a><code>状态转移</code>(根据最后加上这个字母(26个)最后产生的匹配数的不同划分长度为i + 1的字母串集合)</h4><ol>
 <li>f[i + 1][u] += f[i][j] (满足条件的j: j加上i的这个位置枚举的字母之后, 母串与子串匹配到第u个数)</li>
 </ol>
 <p><strong>Notices</strong>:</p>
