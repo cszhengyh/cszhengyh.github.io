@@ -490,7 +490,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2020-07-05
+                    2020-07-30
                 </div>
                 
 
@@ -513,7 +513,7 @@
 <hr>
 <h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p><a href="https://acm.webturing.com/problem.php?id=2846" target="_blank" rel="noopener">Portal</a></p>
 <hr>
-<h3 id="Meaning"><a href="#Meaning" class="headerlink" title="Meaning"></a>Meaning</h3><p>求长度为n且其子串集合中含给定字串的方案数<br><strong>Notice</strong>: 子串一定连续。</p>
+<h3 id="Meaning"><a href="#Meaning" class="headerlink" title="Meaning"></a>Meaning</h3><p>求长度为n且其子串集合中含给定字串的方案数. (用给定字串去匹配长度为n的母串, 全部字串都能匹配上的话, 方案数++)<br><strong>Notice</strong>: 子串一定连续。</p>
 <hr>
 <h3 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h3><p>对于这道题(暴力的话枚举母串26^n就直接炸了)。看到子串匹配问题我们会想到KMP,  AC自动机, 由于匹配子串, 所以我们不必用到AC自动机, 用KMP就好。然后就是本题最难的地方了, 这种数据范围很大, 暴力枚举不出来并且四不像的题, 要么dp, 要么思维推公式(最后发现组合数学不行有重复), 就只能dp了。但是由于dp我们枚举状态的话, 5e13炸了, 所以我们需要用到考虑到是否可能用矩阵快速幂加速递推呢? 将n降成logn枚举状态, 时间复杂度就够了。</p>
 <hr>
@@ -614,7 +614,7 @@ ll f<span class="token punctuation">[</span><span class="token number">200</span
 <hr>
 <h3 id="Accepted-Code"><a href="#Accepted-Code" class="headerlink" title="Accepted Code"></a>Accepted Code</h3><p><a href="https://acm.webturing.com/showsource.php?id=601848" target="_blank" rel="noopener">Portal</a></p>
 <hr>
-<p>类似题目: luogu GT考试, acwing 设计密码<br>拓展题目: hdu 2243(多子串 -&gt; AC自动机)</p>
+<p>类似题目: luogu GT考试, acwing 设计密码<br>拓展题目: hdu 2243(多子串 -&gt; AC自动机), acwing 修复DNA</p>
 
             </div>
             <hr/>
