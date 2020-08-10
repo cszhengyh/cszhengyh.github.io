@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="图论-最小费用流问题, Zyh&#39;s blog">
+    <meta name="keywords" content="Nowcoder 2020 Multi-University Training Contest 1-F, Zyh&#39;s blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -18,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>图论-最小费用流问题 | Zyh&#39;s blog</title>
+    <title>Nowcoder 2020 Multi-University Training Contest 1-F | Zyh&#39;s blog</title>
     <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/1.jpg">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/libs/awesome/css/all.css">
@@ -324,12 +324,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">图论-最小费用流问题</h1>
+                    <h1 class="description center-align post-title">Nowcoder 2020 Multi-University Training Contest 1-F</h1>
                 </div>
             </div>
         </div>
@@ -446,12 +446,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/graph-theory/">
-                                <span class="chip bg-color">graph theory</span>
+                            <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+                                <span class="chip bg-color">字符串</span>
                             </a>
                         
-                            <a href="/tags/%E8%B4%B9%E7%94%A8%E6%B5%81/">
-                                <span class="chip bg-color">费用流</span>
+                            <a href="/tags/%E5%91%A8%E6%9C%9F%E6%80%A7%E5%BC%95%E7%90%86/">
+                                <span class="chip bg-color">周期性引理</span>
                             </a>
                         
                     </div>
@@ -462,8 +462,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/ACM-Notes/" class="post-category">
-                                ACM Notes
+                            <a href="/categories/ACM-Problems-Solving/" class="post-category">
+                                ACM Problems Solving
                             </a>
                         
                     </div>
@@ -475,21 +475,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-07-04
+                    2020-08-10
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2020-07-04
+                    2020-08-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    356
+                    27
                 </div>
                 
 
@@ -501,19 +501,11 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>写在前面,<br>费用流也称作最小费用流. 给定流量的问题称为最小费用流问题, 给定流量为最大流的问题我们称为最小费用最大流问题.</p>
-<h3 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h3><p>求一个图中, 一个点到另一个点, 在保证最大流量的情况下, 求最小费用. 图中每条边有三个特性, 容量, 单位流量所需费用以及当前流量.</p>
+                <h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p><a href="https://ac.nowcoder.com/acm/contest/5666/F" target="_blank" rel="noopener">Portal</a></p>
 <hr>
-<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><ol>
-<li>对于这类问题, 我们需要将图分解成两个图, 一个为费用图, 一个为可行流图.</li>
-<li>我们对费用图跑最短路算法, 求出最短路径.</li>
-<li>然后我们以最短路径(可行流中的一条增广链, 因为初始为0流嘛), 对可行流图进行增广, 增广至该路径为非增广链.</li>
-<li>在费用图中擦去最短路径中的正权饱和弧, 再求最短路径(<code>最短路中必然不包含负权边</code>), 并对其进行增广.</li>
-<li>重复2, 3, 4操作直至找不到S到E的最短路径, 即无增广链, 即当前流量为最大流, 因为饱和的正权边都被擦去了, 然后路径中必不包含负权边, 那么这条链必然是增广链(<code>最小费用最大流</code>)/流量等于给出流量(<code>最小费用流</code>)为止.</li>
-</ol>
+<h3 id="Accepted-Code-1-普遍的性质都是由特殊有限的性质推来的"><a href="#Accepted-Code-1-普遍的性质都是由特殊有限的性质推来的" class="headerlink" title="Accepted Code 1(普遍的性质都是由特殊有限的性质推来的)"></a>Accepted Code 1(<code>普遍的性质都是由特殊有限的性质推来的</code>)</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <hr>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><hr>
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://www.bilibili.com/video/BV1cE411V7gB?from=search&seid=15369341044568953358" target="_blank" rel="noopener">Portal</a></p>
+<h3 id="Accepted-Code-2-Periodicity-Lemma"><a href="#Accepted-Code-2-Periodicity-Lemma" class="headerlink" title="Accepted Code 2(Periodicity Lemma)"></a>Accepted Code 2(<code>Periodicity Lemma</code>)</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -539,7 +531,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://zyh.programlife.top/2020/07/04/%E5%9B%BE%E8%AE%BA-%E6%9C%80%E5%B0%8F%E8%B4%B9%E7%94%A8%E6%B5%81%E9%97%AE%E9%A2%98/">https://zyh.programlife.top/2020/07/04/%E5%9B%BE%E8%AE%BA-%E6%9C%80%E5%B0%8F%E8%B4%B9%E7%94%A8%E6%B5%81%E9%97%AE%E9%A2%98/</a>
+                    <a href="https://zyh.programlife.top/2020/08/10/Nowcoder-2020-Multi-University-Training-Contest-1-F/">https://zyh.programlife.top/2020/08/10/Nowcoder-2020-Multi-University-Training-Contest-1-F/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -577,12 +569,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/graph-theory/">
-                                    <span class="chip bg-color">graph theory</span>
+                                <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+                                    <span class="chip bg-color">字符串</span>
                                 </a>
                             
-                                <a href="/tags/%E8%B4%B9%E7%94%A8%E6%B5%81/">
-                                    <span class="chip bg-color">费用流</span>
+                                <a href="/tags/%E5%91%A8%E6%9C%9F%E6%80%A7%E5%BC%95%E7%90%86/">
+                                    <span class="chip bg-color">周期性引理</span>
                                 </a>
                             
                         </div>
@@ -1013,9 +1005,69 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/2020/08/10/Nowcoder-2020-Multi-University-Training-Contest-1-F/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/11.jpg" class="responsive-img" alt="Nowcoder 2020 Multi-University Training Contest 1-F">
+                        
+                        <span class="card-title">Nowcoder 2020 Multi-University Training Contest 1-F</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            ProblemPortal
+
+Accepted Code 1(普遍的性质都是由特殊有限的性质推来的)
+
+Accepted Code 2(Periodicity Lemma)
+
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ACM-Problems-Solving/" class="post-category">
+                                    ACM Problems Solving
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+                        <span class="chip bg-color">字符串</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%91%A8%E6%9C%9F%E6%80%A7%E5%BC%95%E7%90%86/">
+                        <span class="chip bg-color">周期性引理</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2020/08/10/ACM%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B0%8F%E7%BB%93/">
                     <div class="card-image">
@@ -1036,9 +1088,9 @@ Periodicity Lemma（周期性引理）: 两个由长度分别为a,b进行无限�
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1056,63 +1108,6 @@ Periodicity Lemma（周期性引理）: 两个由长度分别为a,b进行无限�
                     
                     <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">
                         <span class="chip bg-color">字符串</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/07/02/%E5%9B%BE%E8%AE%BA-%E6%9C%80%E5%A4%A7%E6%B5%81%E7%AE%97%E6%B3%95/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/21.jpg" class="responsive-img" alt="图论-网络最大流与最小截问题">
-                        
-                        <span class="card-title">图论-网络最大流与最小截问题</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            解决问题对于一张图, 我们对于每条边有两个特性, 单位时间能传输的最大流量(容量)和流量, 流量必须小于等于容量并且对于每个点来说, 流入的流量和与流出的流量和必须相等. 最大流算法就是解决图中一个点到另一个点的单位时间内能传输的最大流量.
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-02
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/ACM-Notes/" class="post-category">
-                                    ACM Notes
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/graph-theory/">
-                        <span class="chip bg-color">graph theory</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/">
-                        <span class="chip bg-color">最大流</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%9C%80%E5%B0%8F%E6%88%AA/">
-                        <span class="chip bg-color">最小截</span>
                     </a>
                     
                 </div>
