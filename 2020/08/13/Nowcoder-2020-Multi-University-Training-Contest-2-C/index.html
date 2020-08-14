@@ -444,12 +444,29 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/dfs/">
+                                <span class="chip bg-color">dfs</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%A0%91/">
+                                <span class="chip bg-color">树</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/ACM-Problem-Solving/" class="post-category">
+                                ACM Problem Solving
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -472,7 +489,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    3
+                    198
                 </div>
                 
 
@@ -486,7 +503,17 @@
             <div id="articleContent">
                 <h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p><a href="https://ac.nowcoder.com/acm/contest/5667/C" target="_blank" rel="noopener">Portal</a></p>
 <hr>
+<h3 id="Notice"><a href="#Notice" class="headerlink" title="Notice"></a>Notice</h3><p>本题若链的头尾相等, <code>则代表一条边都未覆盖</code>, 所以我们当叶节点数为奇数时, 我们输出的链<code>必须为最后一个叶节点到根节点的链</code>, 不然就会出现下图的情况.<br><img src="https://img-blog.csdnimg.cn/20200814215353731.png?x-oss-process=image" alt=""></p>
+<hr>
+<h3 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h3><ul>
+<li>树一定是无向图</li>
+<li>对于一颗树来说，若有n个叶节点，则至少需要$n/2$向上取整（$(n+1)/2$）的链才能覆盖到所有叶节点，并且这些链可以同时覆盖所有边。</li>
+<li>叶子结点相连。若剩下一个叶子结点，则这个叶子结点与其他任意一个叶子结点相连即可。</li>
+</ul>
+<hr>
 <h3 id="Accepted-Code"><a href="#Accepted-Code" class="headerlink" title="Accepted Code"></a>Accepted Code</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<hr>
+<p>类似题目:<br><a href="https://www.acwing.com/activity/content/code/content/352321/" target="_blank" rel="noopener">ACwing 冗余路径</a>（算法提高棵无向图的双连通分量开始25:30开始看）</p>
 
             </div>
             <hr/>
@@ -549,7 +576,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            
+                                <a href="/tags/dfs/">
+                                    <span class="chip bg-color">dfs</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%A0%91/">
+                                    <span class="chip bg-color">树</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -997,8 +1032,11 @@
                         
                             ProblemPortal
 
-Accepted Code
+Notice本题若链的头尾相等, 则代表一条边都未覆盖, 所以我们当叶节点数为奇数时, 我们输出的链必须为最后一个叶节点到根节点的链, 不然就会出现下图的情况.
 
+Thoughts
+树一定是无向图
+对于一颗树来
                         
                     </div>
                     <div class="publish-info">
@@ -1007,13 +1045,29 @@ Accepted Code
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Mrhh
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ACM-Problem-Solving/" class="post-category">
+                                    ACM Problem Solving
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/dfs/">
+                        <span class="chip bg-color">dfs</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%A0%91/">
+                        <span class="chip bg-color">树</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1053,8 +1107,8 @@ Notices
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/ACM-Problems-Solving/" class="post-category">
-                                    ACM Problems Solving
+                            <a href="/categories/ACM-Problem-Solving/" class="post-category">
+                                    ACM Problem Solving
                                 </a>
                             
                             
