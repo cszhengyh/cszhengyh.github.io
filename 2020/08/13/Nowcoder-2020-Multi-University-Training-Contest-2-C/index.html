@@ -504,13 +504,13 @@
                 <h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p><a href="https://ac.nowcoder.com/acm/contest/5667/C" target="_blank" rel="noopener">Portal</a></p>
 <hr>
 <h3 id="Notice"><a href="#Notice" class="headerlink" title="Notice"></a>Notice</h3><p>本题若链的头尾相等, <code>则代表一条边都未覆盖</code>, 所以我们当叶节点数为奇数时, 我们输出的链<code>必须为最后一个叶节点到根节点的链</code>, 不然就会出现下图的情况.<br><img src="https://img-blog.csdnimg.cn/20200814215353731.png?x-oss-process=image" alt=""></p>
+<p><img src="https://img-blog.csdnimg.cn/20200815191159835.png?x-oss-process=image" alt="图1 漏掉了1-3这条边"></p>
 <hr>
 <h3 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h3><ul>
 <li>树一定是无向图</li>
 <li><strong>对于一颗树来说，若有n个叶节点，则至少需要$n/2$向上取整（$(n+1)/2$）的链才能覆盖到所有叶节点。我们通过dfs序遍历树，叶子节点按照从左至右的顺序入vector，并且将叶子节点对半分，然后将数组第一个点与后半部分的第一个节点配对，依次下去，这些链就可以同时覆盖所有边。（为什么这样就可以, 是经过成百上千次的实验和WA得到的）</strong></li>
 <li>叶子结点相连。若剩下一个叶子结点，则这个叶子结点必须与根节点相连。</li>
 </ul>
-<p><img src="https://img-blog.csdnimg.cn/20200815191159835.png?x-oss-process=image" alt="图1 漏掉了1-3这条边"></p>
 <hr>
 <h3 id="Accepted-Code"><a href="#Accepted-Code" class="headerlink" title="Accepted Code"></a>Accepted Code</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">200010</span><span class="token punctuation">,</span> M <span class="token operator">=</span> N <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span>
 
