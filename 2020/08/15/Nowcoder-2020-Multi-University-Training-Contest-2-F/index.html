@@ -503,7 +503,7 @@
             <div id="articleContent">
                 <h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p><a href="https://ac.nowcoder.com/acm/contest/5667/F" target="_blank" rel="noopener">Portal</a></p>
 <hr>
-<h3 id="Brute-force-Code"><a href="#Brute-force-Code" class="headerlink" title="Brute force Code"></a>Brute force Code</h3><p>最坏$O(3.9*10^{13})$，题目给的三秒也就3*10^{8}次运算。</p>
+<h3 id="Brute-force-Code"><a href="#Brute-force-Code" class="headerlink" title="Brute force Code"></a>Brute force Code</h3><p>最坏$O(3.9*10^{13})$，题目给的三秒也就$3*10^{8}$次运算。</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">5010</span><span class="token punctuation">;</span>
 
 <span class="token keyword">int</span> n<span class="token punctuation">,</span> m<span class="token punctuation">,</span> k<span class="token punctuation">;</span>
@@ -586,13 +586,13 @@ ll ans<span class="token punctuation">;</span> <span class="token comment" spell
     <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span> <span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n <span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span>
         <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">1</span> <span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> m <span class="token punctuation">;</span> j <span class="token operator">++</span> <span class="token punctuation">)</span>
             <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>gcd<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 记忆化使得本来nmlogn(n*(n/1 + n/2 + ... + n/n))的算法变成nm(每个点赋值时间复杂度都为O(1)) </span>
-                <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">1</span> <span class="token punctuation">;</span> k <span class="token operator">*</span> i <span class="token operator">&lt;=</span> n <span class="token operator">&amp;&amp;</span> k <span class="token operator">*</span> j <span class="token operator">&lt;=</span> m <span class="token punctuation">;</span> k <span class="token operator">++</span> <span class="token punctuation">)</span>
+                <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> l <span class="token operator">=</span> <span class="token number">1</span> <span class="token punctuation">;</span> l <span class="token operator">*</span> i <span class="token operator">&lt;=</span> n <span class="token operator">&amp;&amp;</span> l <span class="token operator">*</span> j <span class="token operator">&lt;=</span> m <span class="token punctuation">;</span> l <span class="token operator">++</span> <span class="token punctuation">)</span>
                     <span class="token comment" spellcheck="true">/*  
                     一开始gcd[i][j]等于0, 且i, j必定互质, 我们就将gcd[i][j]赋值为1, lcm[i][j]赋值为i*j, 因为不互质的前面已经算法出来了. 比如2, 4, 已经被前面的1, 2的倍数算出来了. 
-                    然后gcd[i*k][j*k] = k*gcd[i][j] = k*1,
-                    lcm[i*k][j*k] = lcm[i][j] * k = i*j*k.
+                    然后gcd[i*l][j*l] = l*gcd[i][j] = l*1,
+                    lcm[i*l][j*l] = lcm[i][j] * l = i*j*l.
                     */</span>  
-                    gcd<span class="token punctuation">[</span>i <span class="token operator">*</span> k<span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">*</span> k<span class="token punctuation">]</span> <span class="token operator">=</span> k<span class="token punctuation">,</span> lcm<span class="token punctuation">[</span>i <span class="token operator">*</span> k<span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">*</span> k<span class="token punctuation">]</span> <span class="token operator">=</span> i <span class="token operator">*</span> j <span class="token operator">*</span> k<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// ** 算法进阶指南中的倍数法, 倍数筛, 类素数筛</span>
+                    gcd<span class="token punctuation">[</span>i <span class="token operator">*</span> l<span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">*</span> l<span class="token punctuation">]</span> <span class="token operator">=</span> l<span class="token punctuation">,</span> lcm<span class="token punctuation">[</span>i <span class="token operator">*</span> l<span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">*</span> l<span class="token punctuation">]</span> <span class="token operator">=</span> i <span class="token operator">*</span> j <span class="token operator">*</span> l<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// ** 算法进阶指南中的倍数法, 倍数筛, 类素数筛</span>
 
     <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span> <span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> m <span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
@@ -1127,7 +1127,12 @@ ll ans<span class="token punctuation">;</span> <span class="token comment" spell
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            ProblemPortal
+
+Thoughts
+
+Accepted Code
+
                         
                     </div>
                     <div class="publish-info">
@@ -1136,11 +1141,27 @@ ll ans<span class="token punctuation">;</span> <span class="token comment" spell
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Mrhh
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ACM-Problem-Solving/" class="post-category">
+                                    ACM Problem Solving
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%80%9D%E7%BB%B4/">
+                        <span class="chip bg-color">思维</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%B4%AA%E5%BF%83/">
+                        <span class="chip bg-color">贪心</span>
+                    </a>
+                    
                 </div>
                 
             </div>
