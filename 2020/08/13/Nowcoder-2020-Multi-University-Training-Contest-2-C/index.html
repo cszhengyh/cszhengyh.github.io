@@ -482,14 +482,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2020-08-15
+                    2020-08-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    529
+                    557
                 </div>
                 
 
@@ -508,7 +508,7 @@
 <hr>
 <h3 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h3><ul>
 <li>树一定是无向图</li>
-<li><strong>对于一颗树来说，若有n个叶节点，则至少需要$n/2$向上取整（$(n+1)/2$）的链才能覆盖到所有叶节点。我们通过dfs序遍历树，叶子节点按照从左至右的顺序入vector，并且将叶子节点对半分，然后将数组第一个点与后半部分的第一个节点配对，依次下去，这些链就可以同时覆盖所有边。（为什么这样就可以, 是经过成百上千次的实验和WA得到的）</strong></li>
+<li><strong>对于一颗树来说，若有n个叶节点，则至少需要$n/2$向上取整（$(n+1)/2$）的链才能覆盖到所有叶节点。我们通过dfs序遍历树，叶子节点按照从左至右的顺序入vector，并且将叶子节点对半分，然后将数组第一个点与后半部分的第一个节点配对，依次下去，这些链就可以同时覆盖所有边。（那么为什么这样连就能覆盖所有的边呢？经过无数次的实验和WA总结的）</strong></li>
 <li>叶子结点相连。若剩下一个叶子结点，则这个叶子结点必须与根节点相连。</li>
 </ul>
 <hr>
@@ -565,8 +565,8 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
     <span class="token comment" spellcheck="true">/*
     巨坑!!!
     这里特别注意, 我们不能写成,
-    sons[sons.size() - i - 1],
-    原因见上图1的情况, 偶数叶子节点情况
+    sons[sons.size() - i - 1], 即叶子节点1--n, 2--(n-1)依次相连.
+    原因见上图1的情况, 偶数叶子节点情况, 无法覆盖完所有边.
     */</span>
     <span class="token keyword">int</span> m <span class="token operator">=</span> <span class="token punctuation">(</span>sons<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
     <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> sons<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span> write <span class="token operator">&lt;&lt;</span> sons<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span> <span class="token operator">&lt;&lt;</span> sons<span class="token punctuation">[</span>i <span class="token operator">+</span> m<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
@@ -1125,8 +1125,8 @@ bo
                         <span class="chip bg-color">数据结构</span>
                     </a>
                     
-                    <a href="/tags/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/">
-                        <span class="chip bg-color">单调队列</span>
+                    <a href="/tags/%E4%BA%8C%E7%BB%B4%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/">
+                        <span class="chip bg-color">二维单调队列</span>
                     </a>
                     
                 </div>
