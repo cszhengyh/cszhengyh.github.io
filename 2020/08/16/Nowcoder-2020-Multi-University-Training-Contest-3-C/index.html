@@ -489,7 +489,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    276
+                    531
                 </div>
                 
 
@@ -503,9 +503,67 @@
             <div id="articleContent">
                 <h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p><a href="https://ac.nowcoder.com/acm/contest/5668/C" target="_blank" rel="noopener">Portal</a></p>
 <hr>
-<h3 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h3><p>先判断给出多边形的点的顺序是顺时针还是逆时针，然后看边长中9，8两条边是否相邻，如果顺时针9，8相邻为左手，否则为右手，如果是逆时针9，8相邻为右手，否则为左手。<br>而如何判断输入图形时坐标是顺时针给出，还是逆时针给出呢？<br>$\vec a$ = $(x1, y1)$，$\vec b$ = $(x2, y2)$，则$\vec a$，$\vec b$向量的叉积为$x1y2 - x2y1$。<br>叉积为负，则$sina$为负，则向量b在a的顺时针方向，为正则$sina$为正，则在逆时针方向。推而广之，对于n个二维向量构成的多边形，我们也可以通过判断其向量叉积的正负来确定点序的顺逆时针。<br>这里我们可以将每个点看作是与坐标原点相连的一个向量，我们对n个二维向量做叉积。若叉积大于0，则点顺序为逆时针给出，反之则为顺时针给出。<br><img src="https://img-blog.csdnimg.cn/20200818134221858.jpg?x-oss-process=image" alt=""><br><a href="https://blog.csdn.net/weixin_39872717/article/details/77368234" target="_blank" rel="noopener">二维向量叉积的简单介绍及应用</a></p>
+<h3 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h3><ol>
+<li>观察图形边长9，8唯一且相连的特征</li>
+<li>先判断给出多边形的点的顺序是顺时针还是逆时针，然后看边长中9，8两条边是否相邻，如果顺时针9，8相邻为左手，否则为右手，如果是逆时针9，8相邻为右手，否则为左手。<br>而如何判断输入图形时坐标是顺时针给出，还是逆时针给出呢？<br>$\vec a$ = $(x1, y1)$，$\vec b$ = $(x2, y2)$，则$\vec a$，$\vec b$向量的叉积为$x1y2 - x2y1$。<br>叉积为负，则$sina$为负，则向量b在a的顺时针方向，为正则$sina$为正，则在逆时针方向。推而广之，对于n个二维向量构成的多边形，我们也可以通过判断其<strong>向量叉积的正负来确定<code>点序</code>的顺逆时针</strong>。<br>这里我们可以将每个点看作是与坐标原点相连的一个向量，我们对n个二维向量做叉积。若叉积大于0，则点顺序为逆时针给出，反之则为顺时针给出。<br><img src="https://img-blog.csdnimg.cn/20200818134221858.jpg?x-oss-process=image" alt=""><br><a href="https://blog.csdn.net/weixin_39872717/article/details/77368234" target="_blank" rel="noopener">二维向量叉积的简单介绍及应用</a></li>
+</ol>
 <hr>
-<h3 id="Accepted-Code"><a href="#Accepted-Code" class="headerlink" title="Accepted Code"></a>Accepted Code</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="Accepted-Code"><a href="#Accepted-Code" class="headerlink" title="Accepted Code"></a>Accepted Code</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">double</span> eps <span class="token operator">=</span> <span class="token number">1e-4</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 精度一般设置两位差距 </span>
+
+<span class="token keyword">struct</span> point
+<span class="token punctuation">{</span>
+    <span class="token keyword">double</span> x<span class="token punctuation">,</span> y<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>p<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> t<span class="token punctuation">;</span>
+
+<span class="token keyword">double</span> <span class="token function">get</span> <span class="token punctuation">(</span>point a<span class="token punctuation">,</span> point b<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">sqrt</span><span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>x <span class="token operator">-</span> b<span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>x <span class="token operator">-</span> b<span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>y <span class="token operator">-</span> b<span class="token punctuation">.</span>y<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>y <span class="token operator">-</span> b<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">signed</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+<span class="token macro property">#<span class="token directive keyword">ifdef</span> duipai</span>
+    <span class="token function">freopen</span><span class="token punctuation">(</span><span class="token string">"E:\\Computer major\\Algorithm competition\\duipai\\in.txt"</span><span class="token punctuation">,</span><span class="token string">"r"</span><span class="token punctuation">,</span><span class="token constant">stdin</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">freopen</span><span class="token punctuation">(</span><span class="token string">"E:\\Computer major\\Algorithm competition\\duipai\\out1.txt"</span><span class="token punctuation">,</span><span class="token string">"w"</span><span class="token punctuation">,</span><span class="token constant">stdout</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+
+    IOS<span class="token punctuation">;</span>
+
+    cin <span class="token operator">>></span> t<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span> i <span class="token operator">&lt;</span> t <span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">20</span> <span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span> cin <span class="token operator">>></span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>x <span class="token operator">>></span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>y<span class="token punctuation">;</span>
+
+        p<span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span> <span class="token operator">=</span> p<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 编号为19的点到0号点的边 19 + 1 = 20 </span>
+        <span class="token keyword">double</span> mask <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> 
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">20</span> <span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span> mask <span class="token operator">+</span><span class="token operator">=</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>x <span class="token operator">*</span> p<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>y <span class="token operator">-</span> p<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>x <span class="token operator">*</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>y<span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>mask <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token function">reverse</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span> p <span class="token operator">+</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 顺时针改为逆时针, 统一输入点序 </span>
+
+        p<span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span> <span class="token operator">=</span> p<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 同上 </span>
+        p<span class="token punctuation">[</span><span class="token number">21</span><span class="token punctuation">]</span> <span class="token operator">=</span> p<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 0 - 1的边 </span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">20</span> <span class="token punctuation">;</span> i <span class="token operator">++</span> <span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">fabs</span><span class="token punctuation">(</span><span class="token function">get</span><span class="token punctuation">(</span>p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> p<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">9</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> eps<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 9e+007 = 9 * 10^7</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">fabs</span><span class="token punctuation">(</span><span class="token function">get</span><span class="token punctuation">(</span>p<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> p<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> eps<span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"right"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">else</span> 
+                <span class="token punctuation">{</span>
+                    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"left"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>    
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -1034,8 +1092,12 @@ Accepted Code
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Mrhh
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ACM-Problem-Solving/" class="post-category">
+                                    ACM Problem Solving
+                                </a>
+                            
                             
                         </span>
                     </div>
