@@ -478,14 +478,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2020-07-01
+                    2020-08-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    579
+                    611
                 </div>
                 
 
@@ -500,7 +500,7 @@
                 <h3 id="什么是卡常"><a href="#什么是卡常" class="headerlink" title="什么是卡常?"></a>什么是卡常?</h3><p>比如在同样的循环层数中, 我们基本语句的条数很多, 常数就很大. 比如for(int i = 0 ; i &lt; n ; i ++ ), 一个代码循环中有10条语句, 其时间复杂度为O(10N), 另一个代码循环中的只有2条语句, 那么时间复杂度就为O(2N), 但是我们算时间复杂度时都认为是O(N), 但实际上他们之间的时间还是有一些差别的(基本语句执行的次数不同, 基本语句执行次数与时间复杂度成正比). 那么我们的出题人是怎么卡我们常数的呢? 比如一个查询算法, 我们的出题人可以通过让我们查询的次数变多, 这样常数累加会越来越大, 时间差距会变得不能忽略, 当常数足够大的时候, 就会影响到时间复杂度.</p>
 <hr>
 <h3 id="对于卡常题目的优化"><a href="#对于卡常题目的优化" class="headerlink" title="对于卡常题目的优化"></a>对于卡常题目的优化</h3><ul>
-<li>卡常代码优化(在 c/c++ 代码前加上以下代码)<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">pragma</span> GCC optimize(2)</span>
+<li>卡常代码优化(在 c/c++ 代码前加上以下代码)<br>这类优化是通过牺牲编译时间来加快运行的时间，编译时间超过10s将报错Complie Error。<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">pragma</span> GCC optimize(2)</span>
 <span class="token macro property">#<span class="token directive keyword">pragma</span> GCC optimize(3)</span>
 <span class="token macro property">#<span class="token directive keyword">pragma</span> GCC optimize("Ofast")</span>
 <span class="token macro property">#<span class="token directive keyword">pragma</span> GCC optimize("inline")</span>
