@@ -485,7 +485,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    787
+                    789
                 </div>
                 
 
@@ -506,7 +506,7 @@
 <li>$0 &lt;= a[i] &lt;= 1e9$，答案可能会爆int，然而绝不会爆longlong（10^14）</li>
 </ul>
 <hr>
-<h3 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h3><h5 id="分析"><a href="#分析" class="headerlink" title="分析"></a><code>分析</code></h5><p>首先，题目要求p，q两个matching的cost和最小。<br>根据题目给出的公式，对于一个序列a，要使得$\Sigma$$abs(ai - aj)$最小，我们只需要将a数组排个序，然后相邻元素相减即可。<br>这里的j，就是题目中公式的pi，现在的意思就是让a[p[i]]和a[i]在a数组排完序之后的序列中相邻即可。<br>这样的话p数组其实就是将a数组排序，然后给a数组1<del>n标号，然后相邻两个标号交换即可 – 构造p数组。<br>p数组的cost就是$\Sigma$$abs(ai - aj)$的最小值，要cost和最小，即q的cost为$\Sigma$$abs(ai - aj)$的次小值即可。<br>次小值就是将排序后的数列a向前移动一格，第一个数到末尾，然后相邻两数相减求和，$\Sigma$$abs(ai - aj)$的值为满足q数组的定义情况下的次小值。<br>q数组为排序之后，将a数组1</del>n标号，然后将首尾交换编号，其余标号相邻交换即得到了q数组。<br><img src="https://img-blog.csdnimg.cn/20200819170755236.jpg?x-oss-process=image" alt="构造p，q数组"><br><code>p，q数组是用来约束次小值的，注意！</code></p>
+<h3 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h3><h5 id="分析"><a href="#分析" class="headerlink" title="分析"></a><code>分析</code></h5><p>首先，题目要求p，q两个matching的cost和最小。<br>根据题目给出的公式，对于一个序列a，要使得$\Sigma$$abs(ai - aj)$最小，我们只需要将a数组排个序，然后相邻元素相减即可。<br>这里的j，就是题目中公式的pi，现在的意思就是让a[p[i]]和a[i]在a数组排完序之后的序列中相邻即可。<br>这样的话p数组其实就是将a数组排序，然后给a数组1~n标号，然后相邻两个标号交换即可 – 构造p数组。<br>p数组的cost就是$\Sigma$$abs(ai - aj)$的最小值，要cost和最小，即q的cost为$\Sigma$$abs(ai - aj)$的次小值即可。<br>次小值就是将排序后的数列a向前移动一格，第一个数到末尾，然后相邻两数相减求和，$\Sigma$$abs(ai - aj)$的值为满足q数组的定义情况下的次小值。<br>q数组为排序之后，将a数组1~n标号，然后将首尾交换编号，其余标号相邻交换即得到了q数组。<br><img src="https://img-blog.csdnimg.cn/20200819170755236.jpg?x-oss-process=image" alt="构造p，q数组"><br><code>p，q数组是用来约束次小值的，注意！</code></p>
 <p>但很明显，求次小值这样做是有限制的，只有长度为4，6的数列才满足（我们可以构造数列，我们会发现当数列长度为8的时候，将其分为两个长度为4的序列，分别算出两个次小值相加，比用上述方法算更佳）。对于长度为8的序列，他可以拆成两个长度为4的序列，在这之后的数就可以由多个长度为4的和6的拼接而成。那么也就是说我们可以用DP来维护这个次小值。</p>
 <p>然后，由于$N &gt;= 4 &amp;&amp; (N &amp; 1) == 0$，故而所有的N的次小值可以由4，6子段的递推得到。</p>
 <p>最后根据数据范围，发现时间复杂度显然最多承受$O(nlogn)$</p>
