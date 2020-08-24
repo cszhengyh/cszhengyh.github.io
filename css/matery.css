@@ -639,14 +639,17 @@ header .go-back i {
 }
 
 @-webkit-keyframes rainbow {
+	0%,
     100% {    
         background: rgb(135, 206, 235);
     }    
 }
 
 @keyframes rainbow {
+	0%,
     100% {
 		background: rgb(135, 206, 235);
+
 	}
 }
 
