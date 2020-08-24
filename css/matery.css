@@ -285,6 +285,7 @@ mark {
 }
 
 .bg-color {
+	background-color: blue;
     background-image: linear-gradient(to right, #80deea 0%, #b3e5fc 100%);
 }
 
