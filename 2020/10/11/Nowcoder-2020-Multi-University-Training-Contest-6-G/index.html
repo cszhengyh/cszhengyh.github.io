@@ -485,7 +485,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    253
+                    254
                 </div>
                 
 
@@ -501,7 +501,11 @@
 <hr>
 <h3 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h3><p>根据题意，<br><code>lzr hates monotone. Each whole horizontal or vertical line of the graph should contain at least two colors.</code></p>
 <blockquote>
-<p>n!=1, k!=1<br><code>lzr loves balance. All colors should appear in the same number of times.</code><br>(2*n*(n+1))%k!=0（竖边的数量+横边的数量）</p>
+<p>n!=1, k!=1</p>
+</blockquote>
+<p><code>lzr loves balance. All colors should appear in the same number of times.</code></p>
+<blockquote>
+<p>(2*n*(n+1))%k!=0（竖边的数量+横边的数量）</p>
 </blockquote>
 <p>对于满足条件的网格，<br>如果n不能够整除k，那么我们直接对行，列按照1-k的颜色依次涂（非s形）即可。<br>如果n能够整除k，那么我们每行，列后颜色+1错开染色即可。<br>（至于为什么，这就是构造问题的魅力..）</p>
 <hr>
@@ -1051,8 +1055,9 @@
                         
                             ProblemPortal
 
-Accepted Code
+Meanings
 
+Thoughts考虑寻找开始循环的起点，可以发现从起点后，每次必然是隔开K个的。可以尝试枚举起点，先离散化。滑动窗口维护len[]是以i为起点长度为len[i]的一段序列是没有重复元素的序列
                         
                     </div>
                     <div class="publish-info">
@@ -1070,6 +1075,14 @@ Accepted Code
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
+                        <span class="chip bg-color">滑动窗口</span>
+                    </a>
+                    
                 </div>
                 
             </div>
