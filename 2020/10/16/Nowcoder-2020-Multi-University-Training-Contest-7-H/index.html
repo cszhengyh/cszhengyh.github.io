@@ -489,7 +489,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    434
+                    433
                 </div>
                 
 
@@ -504,14 +504,14 @@
                 <p>写在前面，<br>整除分块也叫除法分块。$O(\sqrt{N})$<br><a href="https://blog.csdn.net/weixin_43627118/article/details/104024380" target="_blank" rel="noopener">算法详解</a></p>
 <h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p><a href="https://ac.nowcoder.com/acm/contest/5672/H" target="_blank" rel="noopener">Portal</a></p>
 <hr>
-<h3 id="Notices"><a href="#Notices" class="headerlink" title="Notices"></a>Notices</h3><p>1<del>N中i能整除k，i的数量为$\lfloorN/k\rfloor$。<br>1</del>N中i-1能整除k，i的数量为$\lfloorN-1/K\rfloor$。</p>
+<h3 id="Notices"><a href="#Notices" class="headerlink" title="Notices"></a>Notices</h3><p>1-N中i能整除k，i的数量为$\lfloor(N)/k\rfloor$。<br>1-N中i-1能整除k，i的数量为$\lfloor(N-1)/K\rfloor$。</p>
 <hr>
-<h3 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h3><p>元组(n, k)，有4种形式。</p>
+<h3 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h3><p>元组$(n, k)$，有4种形式。</p>
 <ol>
-<li>由(1, k)一直采用第3个规则，那么n一定是k的倍数。</li>
-<li>由(1, k)一直采用第2个规则，那么n=1+xk，即n-1一定是k的倍数。</li>
-<li>由(1, k)先采用第2个规则，再采用第3个规则，那么n=(1+xk)*k，即n一定是k的倍数。</li>
-<li>由(1, k)先采用第3个规则，再采用第2个规则，那么n=nk+k=(n+1)*k，即n一定是k的倍数。<br>由Notices的性质，我们最后问题就转化为，分块枚举k值，求$\Sigma_{i=1}^k\lfloorN/k\rfloor+\Sigma_{i=1}^k\lfloor(N-1)/k\rfloor$。<br>一看这个式子显然整除分块。</li>
+<li>由$(1, k)$一直采用第3个规则，那么n一定是k的倍数。</li>
+<li>由$(1, k)$一直采用第2个规则，那么n=1+xk，即n-1一定是k的倍数。</li>
+<li>由$(1, k)$先采用第2个规则，再采用第3个规则，那么$n=(1+xk)*k$，即n一定是k的倍数。</li>
+<li>由$(1, k)$先采用第3个规则，再采用第2个规则，那么$n=nk+k=(n+1)*k$，即n一定是k的倍数。<br>由Notices的性质，我们最后问题就转化为，求$\Sigma_{i=1}^k\lfloor(N)/k\rfloor+\Sigma_{i=1}^k\lfloor(N-1)/k\rfloor$。<br>一看这个式子显然整除分块。</li>
 </ol>
 <hr>
 <h3 id="Accepted-Code"><a href="#Accepted-Code" class="headerlink" title="Accepted Code"></a>Accepted Code</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">const</span> <span class="token keyword">int</span> mod <span class="token operator">=</span> <span class="token number">1e9</span> <span class="token operator">+</span> <span class="token number">7</span><span class="token punctuation">;</span> 
@@ -1045,33 +1045,33 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2020/10/16/Nowcoder-2020-Multi-University-Training-Contest-7-H/">
+                <a href="/2020/10/22/Nowcoder-2020-Multi-University-Training-Contest-8-K/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/0.jpg" class="responsive-img" alt="Nowcoder 2020 Multi University Training Contest 7-H">
+                        <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/4.jpg" class="responsive-img" alt="Nowcoder 2020 Multi University Training Contest 8-K">
                         
-                        <span class="card-title">Nowcoder 2020 Multi University Training Contest 7-H</span>
+                        <span class="card-title">Nowcoder 2020 Multi University Training Contest 8-K</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            写在前面，整除分块也叫除法分块。$O(\sqrt{N})$算法详解
-ProblemPortal
+                            ProblemPortal
 
-Notices1N中i能整除k，i的数量为$\lfloorN/k\rfloor$。1N中i-1能整除k，i的数量为$\lfloorN-1/K\
+Thoughts显然最大的人数就为b[1]。根据题意，若想要上多份菜，菜必须连续，即前缀和。那么我们求利润最大值，其实就是每次都优先取当前最大的前缀和（一个1尽量携带最大的利润，1没了后面的就没了）即可。
+
+A
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-16
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-22
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1084,16 +1084,19 @@ Notices1N中i能整除k，i的数量为$\lfloorN/k\rfloor$。1N中i-1能整除k�
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E8%AE%BA/">
-                        <span class="chip bg-color">数论</span>
+                    <a href="/tags/STL/">
+                        <span class="chip bg-color">STL</span>
                     </a>
                     
-                    <a href="/tags/%E6%95%B4%E9%99%A4%E5%88%86%E5%9D%97/">
-                        <span class="chip bg-color">整除分块</span>
+                    <a href="/tags/%E8%B4%AA%E5%BF%83/">
+                        <span class="chip bg-color">贪心</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/">
+                        <span class="chip bg-color">前缀和</span>
                     </a>
                     
                 </div>
