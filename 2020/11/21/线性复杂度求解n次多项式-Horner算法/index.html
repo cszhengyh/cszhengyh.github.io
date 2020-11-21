@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Nowcoder 2020 Multi University Training Contest 9-I, Zyh&#39;s blog">
+    <meta name="keywords" content="线性复杂度求解n次多项式 -- Horner算法, Zyh&#39;s blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -18,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Nowcoder 2020 Multi University Training Contest 9-I | Zyh&#39;s blog</title>
+    <title>线性复杂度求解n次多项式 -- Horner算法 | Zyh&#39;s blog</title>
     <link rel="icon" type="image/jpeg" href="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/FaceQ.jpg">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/libs/awesome/css/all.css">
@@ -324,12 +324,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Nowcoder 2020 Multi University Training Contest 9-I</h1>
+                    <h1 class="description center-align post-title">线性复杂度求解n次多项式 -- Horner算法</h1>
                 </div>
             </div>
         </div>
@@ -446,12 +446,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%80%9D%E7%BB%B4/">
-                                <span class="chip bg-color">思维</span>
+                            <a href="/tags/%E6%95%B0%E8%AE%BA/">
+                                <span class="chip bg-color">数论</span>
                             </a>
                         
-                            <a href="/tags/Nowcoder-2020-Multi-University-Training-Contest/">
-                                <span class="chip bg-color">Nowcoder 2020 Multi University Training Contest</span>
+                            <a href="/tags/%E5%A4%9A%E9%A1%B9%E5%BC%8F/">
+                                <span class="chip bg-color">多项式</span>
                             </a>
                         
                     </div>
@@ -462,8 +462,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/ACM-Problem-Solving/" class="post-category">
-                                ACM Problem Solving
+                            <a href="/categories/ACM-Notes/" class="post-category">
+                                ACM Notes
                             </a>
                         
                     </div>
@@ -475,21 +475,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-11-12
+                    2020-11-21
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2020-11-12
+                    2020-11-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    138
+                    59
                 </div>
                 
 
@@ -501,34 +501,24 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p><a href="https://ac.nowcoder.com/acm/contest/5674/I" target="_blank" rel="noopener">Portal</a></p>
+                <h3 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h3><p><img src="https://img-blog.csdnimg.cn/2020112116492569.png?x-oss-process=image" alt=""></p>
 <hr>
-<h3 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h3><p>只要把所给的n个数从小到大排一下序，再将最小的非零数提出来作为第一个乘数，将剩下的所有数从小到大排列（0放在剩下的数中最小数的后面），即可。</p>
-<hr>
-<h3 id="Accepted-Code"><a href="#Accepted-Code" class="headerlink" title="Accepted Code"></a>Accepted Code</h3><pre class="line-numbers language-python"><code class="language-python">T <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-<span class="token keyword">while</span> T <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
-    n <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    a <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">)</span>
-    a<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    cnt0 <span class="token operator">=</span> <span class="token number">0</span>
-    mask <span class="token operator">=</span> <span class="token number">0</span>
-    x <span class="token operator">=</span> <span class="token string">""</span>
-    y <span class="token operator">=</span> <span class="token string">""</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token string">'0'</span> <span class="token operator">and</span> mask <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
-            x <span class="token operator">=</span> int<span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
-            mask <span class="token operator">=</span> <span class="token number">1</span>
-        <span class="token keyword">elif</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token string">'0'</span> <span class="token operator">and</span> mask <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
-            y <span class="token operator">+=</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            cnt0 <span class="token operator">+=</span> <span class="token number">1</span>
-    y1 <span class="token operator">=</span> y<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-    y2 <span class="token operator">=</span> y<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span>len<span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">]</span>
-    y <span class="token operator">=</span> y1 <span class="token operator">+</span> <span class="token string">'0'</span><span class="token operator">*</span>cnt0 <span class="token operator">+</span> y2
-
-    <span class="token keyword">print</span><span class="token punctuation">(</span>x <span class="token operator">*</span> int<span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span>
-    T <span class="token operator">-=</span> <span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">,</span> x<span class="token punctuation">,</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    cin<span class="token operator">>></span>n<span class="token operator">>></span>x<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        cin<span class="token operator">>></span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> 
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> n<span class="token punctuation">;</span> i <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        sum <span class="token operator">=</span> sum<span class="token operator">*</span>x <span class="token operator">+</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    cout<span class="token operator">&lt;&lt;</span>sum<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -554,7 +544,7 @@ a <span class="token operator">=</span> <span class="token punctuation">[</span>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://zyh.programlife.top/2020/11/12/Nowcoder-2020-Multi-University-Training-Contest-9-I/">https://zyh.programlife.top/2020/11/12/Nowcoder-2020-Multi-University-Training-Contest-9-I/</a>
+                    <a href="https://zyh.programlife.top/2020/11/21/%E7%BA%BF%E6%80%A7%E5%A4%8D%E6%9D%82%E5%BA%A6%E6%B1%82%E8%A7%A3n%E6%AC%A1%E5%A4%9A%E9%A1%B9%E5%BC%8F-Horner%E7%AE%97%E6%B3%95/">https://zyh.programlife.top/2020/11/21/%E7%BA%BF%E6%80%A7%E5%A4%8D%E6%9D%82%E5%BA%A6%E6%B1%82%E8%A7%A3n%E6%AC%A1%E5%A4%9A%E9%A1%B9%E5%BC%8F-Horner%E7%AE%97%E6%B3%95/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -592,12 +582,12 @@ a <span class="token operator">=</span> <span class="token punctuation">[</span>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%80%9D%E7%BB%B4/">
-                                    <span class="chip bg-color">思维</span>
+                                <a href="/tags/%E6%95%B0%E8%AE%BA/">
+                                    <span class="chip bg-color">数论</span>
                                 </a>
                             
-                                <a href="/tags/Nowcoder-2020-Multi-University-Training-Contest/">
-                                    <span class="chip bg-color">Nowcoder 2020 Multi University Training Contest</span>
+                                <a href="/tags/%E5%A4%9A%E9%A1%B9%E5%BC%8F/">
+                                    <span class="chip bg-color">多项式</span>
                                 </a>
                             
                         </div>
@@ -1028,52 +1018,60 @@ a <span class="token operator">=</span> <span class="token punctuation">[</span>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2020/11/12/Nowcoder-2020-Multi-University-Training-Contest-9-K/">
+                <a href="/2020/11/21/%E7%BA%BF%E6%80%A7%E5%A4%8D%E6%9D%82%E5%BA%A6%E6%B1%82%E8%A7%A3n%E6%AC%A1%E5%A4%9A%E9%A1%B9%E5%BC%8F-Horner%E7%AE%97%E6%B3%95/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/5.jpg" class="responsive-img" alt="Nowcoder 2020 Multi University Training Contest 9-K">
+                        <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="线性复杂度求解n次多项式 -- Horner算法">
                         
-                        <span class="card-title">Nowcoder 2020 Multi University Training Contest 9-K</span>
+                        <span class="card-title">线性复杂度求解n次多项式 -- Horner算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ProblemPortal
+                            算法分析
 
-Thoughts注意，题目明确指出是向着n点走，那么也就是说当路上有分岔路时，土拨鼠会选择走能走到n的那个分支走。对于一个树来说，只要确定根节点，则对于每个点来说父节点都是唯一的，那么我们将n确定为根节点，预处
+代码实现#include&lt;iostream>
+using namespace std;
+int main(){
+    int n, x, sum = 0;
+    cin>>n>>x;
+    int a[20];
+  
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/ACM-Problem-Solving/" class="post-category">
-                                    ACM Problem Solving
+                            <a href="/categories/ACM-Notes/" class="post-category">
+                                    ACM Notes
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/DFS/">
-                        <span class="chip bg-color">DFS</span>
+                    <a href="/tags/%E6%95%B0%E8%AE%BA/">
+                        <span class="chip bg-color">数论</span>
                     </a>
                     
-                    <a href="/tags/Nowcoder-2020-Multi-University-Training-Contest/">
-                        <span class="chip bg-color">Nowcoder 2020 Multi University Training Contest</span>
+                    <a href="/tags/%E5%A4%9A%E9%A1%B9%E5%BC%8F/">
+                        <span class="chip bg-color">多项式</span>
                     </a>
                     
                 </div>
@@ -1087,41 +1085,36 @@ Thoughts注意，题目明确指出是向着n点走，那么也就是说当路�
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/11/12/Nowcoder-2020-Multi-University-Training-Contest-9-F/">
+                <a href="/2020/11/21/%E6%9C%80%E8%BF%91%E5%AF%B9%E9%97%AE%E9%A2%98/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/0.jpg" class="responsive-img" alt="Nowcoder 2020 Multi University Training Contest 9-F">
+                        <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/14.jpg" class="responsive-img" alt="最近对问题">
                         
-                        <span class="card-title">Nowcoder 2020 Multi University Training Contest 9-F</span>
+                        <span class="card-title">最近对问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ProblemPortal
-
-Accepted Codeconst int N = 1000010;
-
-vector&lt;pii> cl;
-int cnt[N];
-
-signed main()
-{
-#ifdef duipai
-    fr
+                            详解见教材《算法分析与设计基础》
+板子#include &lt;iostream>
+#include &lt;cstdio>
+#include &lt;cstring>
+#include &lt;cmath>
+#include &lt;al
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-21
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/ACM-Problem-Solving/" class="post-category">
-                                    ACM Problem Solving
+                            <a href="/categories/ACM-Notes/" class="post-category">
+                                    ACM Notes
                                 </a>
                             
                             
@@ -1131,12 +1124,12 @@ signed main()
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Nowcoder-2020-Multi-University-Training-Contest/">
-                        <span class="chip bg-color">Nowcoder 2020 Multi University Training Contest</span>
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/">
+                        <span class="chip bg-color">计算几何</span>
                     </a>
                     
-                    <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
-                        <span class="chip bg-color">双指针</span>
+                    <a href="/tags/%E5%88%86%E6%B2%BB/">
+                        <span class="chip bg-color">分治</span>
                     </a>
                     
                 </div>
