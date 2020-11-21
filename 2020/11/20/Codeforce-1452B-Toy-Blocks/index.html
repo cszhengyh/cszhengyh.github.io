@@ -1046,56 +1046,70 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2020/11/20/Codeforce-1452B-Toy-Blocks/">
+                <a href="/2020/11/20/%E5%87%B8%E5%8C%85%E9%97%AE%E9%A2%98/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/19.jpg" class="responsive-img" alt="Codeforce-1452B Toy Blocks">
+                        <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/7.jpg" class="responsive-img" alt="凸包问题">
                         
-                        <span class="card-title">Codeforce-1452B Toy Blocks</span>
+                        <span class="card-title">凸包问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ProblemPortal
+                            写在前面，以下算法的时间复杂度都为$O(nlogn)$
+快包讲解见教材《算法设计与分析基础》
+#include&lt;stdio.h>
+#include&lt;stdlib.h>
 
-Thoughts注意，题目说的是我们加入k个块之后，任意选取一堆的所有块来分，都能满足n-1堆数量相等。既然要任意一堆的话，也就是说最少相同的数量就是原序列中的最大值，同时还需要满足和是n-1的倍数。
+int g_result[240][2];
 
-Acc
+/*
+*注：
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-20
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-20
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/ACM-Problem-Solving/" class="post-category">
-                                    ACM Problem Solving
+                            <a href="/categories/ACM-Notes/" class="post-category">
+                                    ACM Notes
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%80%9D%E7%BB%B4/">
-                        <span class="chip bg-color">思维</span>
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/">
+                        <span class="chip bg-color">计算几何</span>
                     </a>
                     
-                    <a href="/tags/Codeforces/">
-                        <span class="chip bg-color">Codeforces</span>
+                    <a href="/tags/%E5%88%86%E6%B2%BB/">
+                        <span class="chip bg-color">分治</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%87%B8%E5%8C%85/">
+                        <span class="chip bg-color">凸包</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%BF%AB%E5%8C%85/">
+                        <span class="chip bg-color">快包</span>
+                    </a>
+                    
+                    <a href="/tags/Graham-Scan/">
+                        <span class="chip bg-color">Graham Scan</span>
                     </a>
                     
                 </div>
