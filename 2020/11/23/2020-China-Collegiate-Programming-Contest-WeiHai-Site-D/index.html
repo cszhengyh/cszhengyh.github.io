@@ -446,16 +446,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%80%9D%E7%BB%B4/">
-                                <span class="chip bg-color">思维</span>
-                            </a>
-                        
                             <a href="/tags/%E6%95%B0%E8%AE%BA/">
                                 <span class="chip bg-color">数论</span>
                             </a>
                         
                             <a href="/tags/%E5%A4%A7%E6%95%B0%E5%88%86%E8%A7%A3%E8%B4%A8%E5%9B%A0%E6%95%B0/">
                                 <span class="chip bg-color">大数分解质因数</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%80%9D%E7%BB%B4/">
+                                <span class="chip bg-color">思维</span>
                             </a>
                         
                             <a href="/tags/%E7%BA%BF%E6%80%A7%E7%AD%9B/">
@@ -519,8 +519,9 @@
 <h3 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h3><p>思路一：首先我们可以发现c如果是一个质数的话，一定是不成立的，因为质数无法分解，那么相乘的数的质因子中必定有c，那么累乘必定大于c。那么如果c是一个合数，根据唯一分解定理，<strong>但凡表达式中存在素数的非1次幂，则一定存在a，b使得rad(abc)&lt;c</strong>。<br>判断是否存在素数的非1次幂：</p>
 <ul>
 <li>然后判断c%(prim[i] * prim[i])是否为0，为0则直接输出yes即可</li>
-<li>如果c%prim[i]=0，那么就先将c除去prim[i]<br>思路二：大数分解模板<br>用大数分解模板，将 c 分解得到 c 的所有质因子，然后去重（模板得到的是无序且没去重的），然后将所有质因子相乘，得到 tmp , 如果 tmp 跟 c 相等，说明 c 不能被素数的平方整除，否则可以。<br>（记得特判 c == 1 的情况！！！ c = 1 是 “ no ” ）</li>
+<li>如果c%prim[i]=0，那么就先将c除去prim[i]</li>
 </ul>
+<p>思路二：大数分解模板<br>用大数分解模板，将 c 分解得到 c 的所有质因子，然后去重（模板得到的是无序且没去重的），然后将所有质因子相乘，得到 tmp , 如果 tmp 跟 c 相等，说明 c 不能被素数的平方整除，否则可以。<br>（记得特判 c == 1 的情况！！！ c = 1 是 “ no ” ）</p>
 <hr>
 <h3 id="Accepted-Code-1"><a href="#Accepted-Code-1" class="headerlink" title="Accepted Code 1"></a>Accepted Code 1</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cstdio></span></span>
@@ -716,7 +717,7 @@ ll <span class="token function">pollard_rho</span><span class="token punctuation
     <span class="token function">findfac</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">findfac</span><span class="token punctuation">(</span>n<span class="token operator">/</span>p<span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span> 
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span> <span class="token punctuation">)</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
     <span class="token keyword">int</span> t<span class="token punctuation">;</span>
     <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -803,16 +804,16 @@ ll <span class="token function">pollard_rho</span><span class="token punctuation
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%80%9D%E7%BB%B4/">
-                                    <span class="chip bg-color">思维</span>
-                                </a>
-                            
                                 <a href="/tags/%E6%95%B0%E8%AE%BA/">
                                     <span class="chip bg-color">数论</span>
                                 </a>
                             
                                 <a href="/tags/%E5%A4%A7%E6%95%B0%E5%88%86%E8%A7%A3%E8%B4%A8%E5%9B%A0%E6%95%B0/">
                                     <span class="chip bg-color">大数分解质因数</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%80%9D%E7%BB%B4/">
+                                    <span class="chip bg-color">思维</span>
                                 </a>
                             
                                 <a href="/tags/%E7%BA%BF%E6%80%A7%E7%AD%9B/">
@@ -1251,33 +1252,31 @@ ll <span class="token function">pollard_rho</span><span class="token punctuation
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2020/11/23/2020-China-Collegiate-Programming-Contest-WeiHai-Site-D/">
+                <a href="/2020/11/25/CodeForce-1454F-Array-Partition/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/2.jpg" class="responsive-img" alt="2020 China Collegiate Programming Contest WeiHai Site-D">
+                        <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/7.jpg" class="responsive-img" alt="Codeforces-1454F Array Partition">
                         
-                        <span class="card-title">2020 China Collegiate Programming Contest WeiHai Site-D</span>
+                        <span class="card-title">Codeforces-1454F Array Partition</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            结论题…
-ProblemPortal
+                            ProblemPortal
 
-Thoughts思路一：首先我们可以发现c如果是一个质数的话，一定是不成立的，因为质数无法分解，那么相乘的数的质因子中必定有c，那么累乘必定大于c。那么如果c是一个合数，根据唯一分解定理，但凡表达式中
+Thoughts这道题的思想其实很像2020牛客多校第九场的E题，当题目给了多种变量的时候，不妨固定其中的一个，然后尝试将另一个优化，之后枚举固定的一个就可以了。枚举其中的一个断点肯定是无法避免的，我们假设枚举
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-23
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-25
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1290,28 +1289,19 @@ Thoughts思路一：首先我们可以发现c如果是一个质数的话，一�
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%80%9D%E7%BB%B4/">
-                        <span class="chip bg-color">思维</span>
+                    <a href="/tags/%E4%BA%8C%E5%88%86/">
+                        <span class="chip bg-color">二分</span>
                     </a>
                     
-                    <a href="/tags/%E6%95%B0%E8%AE%BA/">
-                        <span class="chip bg-color">数论</span>
+                    <a href="/tags/ST%E8%A1%A8/">
+                        <span class="chip bg-color">ST表</span>
                     </a>
                     
-                    <a href="/tags/%E5%A4%A7%E6%95%B0%E5%88%86%E8%A7%A3%E8%B4%A8%E5%9B%A0%E6%95%B0/">
-                        <span class="chip bg-color">大数分解质因数</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%BA%BF%E6%80%A7%E7%AD%9B/">
-                        <span class="chip bg-color">线性筛</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%94%AF%E4%B8%80%E5%88%86%E8%A7%A3%E5%AE%9A%E7%90%86/">
-                        <span class="chip bg-color">唯一分解定理</span>
+                    <a href="/tags/Codeforces/">
+                        <span class="chip bg-color">Codeforces</span>
                     </a>
                     
                 </div>

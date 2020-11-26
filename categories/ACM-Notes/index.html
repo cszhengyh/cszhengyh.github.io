@@ -363,29 +363,20 @@
                 
                 
                 
-                <a href="/categories/ACM-Problem-Solving/" title="ACM Problem Solving: 39">
+                <a href="/categories/ACM-Problem-Solving/" title="ACM Problem Solving: 41">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             style="background-color: #F9EBEA;">ACM Problem Solving
-                        <span class="tag-length">39</span>
+                        <span class="tag-length">41</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/ACM-Notes/" title="ACM Notes: 11">
+                <a href="/categories/ACM-Notes/" title="ACM Notes: 12">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
                             style="background-color: #F5EEF8;">ACM Notes
-                        <span class="tag-length">11</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/ZCROJ/" title="ZCROJ: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #D5F5E3;">ZCROJ
-                        <span class="tag-length">1</span>
+                        <span class="tag-length">12</span>
                     </span>
                 </a>
                 
@@ -393,7 +384,16 @@
                 <a href="/categories/Technology/" title="Technology: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #E8F8F5;">Technology
+                            style="background-color: #D5F5E3;">Technology
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/ZCROJ/" title="ZCROJ: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #E8F8F5;">ZCROJ
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -409,6 +409,58 @@
 
     <article id="articles" class="container articles">
         <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/11/26/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E6%B1%82%E7%8E%AF/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/7.jpg" class="responsive-img" alt="无向图中拓扑排序求最小环">
+                            
+                            <span class="card-title">无向图中拓扑排序求最小环</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                板子// 加边
+for(int i = 0 ; i &lt; n ; i ++ )
+{
+    int a, b;
+    cin >> a >> b;
+    add(a, b), add(b, a);
+    d[b] ++ , d[a
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-26
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/ACM-Notes/" class="post-category">
+                                    ACM Notes
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">
+                            <span class="chip bg-color">拓扑排序</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -859,64 +911,6 @@ Periodicity Lemma（周期性引理）: 两个由长度分别为a,b进行无限�
                         
                         <a href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/">
                             <span class="chip bg-color">最短路</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/02/%E5%9B%BE%E8%AE%BA-%E6%9C%80%E5%A4%A7%E6%B5%81%E7%AE%97%E6%B3%95/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="网络最大流与最小截问题 -- EK算法详解">
-                            
-                            <span class="card-title">网络最大流与最小截问题 -- EK算法详解</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                解决问题对于一张图, 我们对于每条边有两个特性, 单位时间能传输的最大流量(容量)和流量, 流量必须小于等于容量并且对于每个点来说, 流入的流量和与流出的流量和必须相等. 最大流算法就是解决图中一个点到另一个点的单位时间内能传输的最大流量.
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-02
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/ACM-Notes/" class="post-category">
-                                    ACM Notes
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%9B%BE%E8%AE%BA/">
-                            <span class="chip bg-color">图论</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/">
-                            <span class="chip bg-color">最大流</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%9C%80%E5%B0%8F%E6%88%AA/">
-                            <span class="chip bg-color">最小截</span>
-                        </a>
-                        
-                        <a href="/tags/EK%E7%AE%97%E6%B3%95/">
-                            <span class="chip bg-color">EK算法</span>
                         </a>
                         
                     </div>
