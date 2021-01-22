@@ -486,14 +486,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-01-20
+                    2021-01-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    208
+                    209
                 </div>
                 
 
@@ -507,7 +507,7 @@
             <div id="articleContent">
                 <h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p><a href="https://codeforces.ml/contest/1473/problem/C" target="_blank" rel="noopener">Portal</a></p>
 <hr>
-<h3 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h3><p>很容易求得a数组的逆序对数量为(n-k)^2<br><img src="https://img-blog.csdnimg.cn/20210120223136311.jpg?x-oss-process=image" alt="b数组区间[k-(n-k), n]的逆序对数量\(n-k\)^2"><br>所以我们可以知道b数组区间[k-(n-k), n]的逆序对数量是固定的，也就是说明区间[1, k-(n-k))不能存在逆序对，并且也不能与后面的元素构成逆序对，不然逆序对的数量就超过a的逆序对数量了。<br>也就是说p数组的前k-(n-k)-1个数必须是升序且必须是最小的，同时又为了让b数组字典序最大后面的数直接倒序。</p>
+<h3 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h3><p>很容易求得a数组的逆序对数量为$(n-k)^{2}$<br><img src="https://img-blog.csdnimg.cn/20210120223136311.jpg?x-oss-process=image" alt="b数组区间[k-n+k, n]的逆序对数量$(n-k)^{2}$"><br>所以我们可以知道b数组区间[k-n+k, n]的逆序对数量是固定的，也就是说明区间[1, k-n+k))不能存在逆序对，并且也不能与后面的元素构成逆序对，不然逆序对的数量就超过a的逆序对数量了。<br>也就是说p数组的前k-n+k-1个数必须是升序且必须是最小的，同时又为了让b数组字典序最大后面的数直接倒序。</p>
 <hr>
 <h3 id="Accepted-Code"><a href="#Accepted-Code" class="headerlink" title="Accepted Code"></a>Accepted Code</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token macro property">#<span class="token directive keyword">define</span> int long long</span>
@@ -1030,18 +1030,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/01/20/Codeforces-1473C-No-More-Inversions/">
+                <a href="/2021/01/21/Codeforces-1474C-Array-Destruction/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/12.jpg" class="responsive-img" alt="Codeforces-1473C No More Inversions(逆序对的性质)">
+                        <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/18.jpg" class="responsive-img" alt="Codeforces-1474C Array Destruction">
                         
-                        <span class="card-title">Codeforces-1473C No More Inversions(逆序对的性质)</span>
+                        <span class="card-title">Codeforces-1474C Array Destruction</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1049,13 +1048,16 @@
                         
                             ProblemPortal
 
-Thoughts很容易求得a数组的逆序对数量为(n-k)^2所以我们可以知道b数组区间[k-(n-k), n]的逆序对数量是固定的，也就是说明区间[1, k-(n-k))不能存在逆序对，并且也不能与后面的元素构
+Thoughts如果x中不包含剩下序列中的最大值，那么最大值将无法被删掉。时间复杂度有点玄学。。
+
+Accepted Code#include &lt;bits/stdc++.h>
+#define int lo
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-20
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-21
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1068,7 +1070,6 @@ Thoughts很容易求得a数组的逆序对数量为(n-k)^2所以我们可以知�
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1078,10 +1079,6 @@ Thoughts很容易求得a数组的逆序对数量为(n-k)^2所以我们可以知�
                     
                     <a href="/tags/Codeforces/">
                         <span class="chip bg-color">Codeforces</span>
-                    </a>
-                    
-                    <a href="/tags/%E9%80%86%E5%BA%8F%E5%AF%B9/">
-                        <span class="chip bg-color">逆序对</span>
                     </a>
                     
                 </div>
