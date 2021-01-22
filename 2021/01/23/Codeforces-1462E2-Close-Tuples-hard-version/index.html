@@ -497,7 +497,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    402
+                    416
                 </div>
                 
 
@@ -511,7 +511,7 @@
             <div id="articleContent">
                 <h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p><a href="https://codeforces.ml/contest/1462/problem/E2" target="_blank" rel="noopener">Portal</a></p>
 <hr>
-<h3 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h3><p>思路和easy一样，只是求组合数的时候，这里乘积很大，需要取模，但easy的求组合数板子中含有除法，不能取模。<br>所以我们给出当组合数很大时，带取模的组合数板子。<br>$C_n^m$</p>
+<h3 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h3><p>思路和easy一样，只是求组合数的时候，这里乘积很大，需要取模，但easy的求组合数板子中含有除法，不能取模。<br>所以我们给出当组合数很大时，<a href="https://www.cnblogs.com/chantmee/p/14167344.html" target="_blank" rel="noopener">带取模的组合数板子</a>。（利用乘法逆元除法将转化为乘法）<br>$C_n^m$</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstdio></span></span>
 
 <span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">long</span> ll<span class="token punctuation">;</span>
@@ -1132,8 +1132,7 @@ ll <span class="token function">cal</span><span class="token punctuation">(</spa
                         
                             ProblemPortal
 
-Thoughts思路和easy一样，只是求组合数的时候，这里乘积很大，需要取模，但easy的求组合数板子中含有除法，不能取模。所以我们给出当组合数很大时，带取模的组合数板子。$C_n^m$
-#include &
+Thoughts思路和easy一样，只是求组合数的时候，这里乘积很大，需要取模，但easy的求组合数板子中含有除法，不能取模。所以我们给出当组合数很大时，带取模的组合数板子。（利用乘法逆元除法将转化为乘法）$C
                         
                     </div>
                     <div class="publish-info">
