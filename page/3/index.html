@@ -363,13 +363,13 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/01/04/Codeforces-1459C-Row-GCD/">
+                    <a href="/2021/01/22/Codeforces-1473D-Program/">
                         <div class="card-image">
                             
                             
-                            <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/23.jpg" class="responsive-img" alt="Codeforces-1459C Row GCD(gcd distribution, gcd transitivity)">
+                            <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="Codeforces-1473D Program">
                             
-                            <span class="card-title">Codeforces-1459C Row GCD(gcd distribution, gcd transitivity)</span>
+                            <span class="card-title">Codeforces-1473D Program</span>
                         </div>
                     </a>
 
@@ -378,12 +378,238 @@
                             
                                 ProblemPortal
 
-Thoughts根据gcd分配律，gcd(a, b, c) = gcd(a, b-a, c-b), 推出所有a[]数字加上bj后，等价变形发现答案为GCD（a1+bj,a2-a1, a3-a2, a4-a3…）
+Thoughts我们只需要维护到该点的序列最大值，最小值，两值之差即目前序列出现的不同数的个数。同时维护一个后缀操作累计值，剔除区间[l,r]，l-1处的数值加上操作累计值值，得到区间[r+1, n]的最大值和
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-22
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/ACM-Problem-Solving/" class="post-category">
+                                    ACM Problem Solving
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%80%9D%E7%BB%B4/">
+                            <span class="chip bg-color">思维</span>
+                        </a>
+                        
+                        <a href="/tags/Codeforces/">
+                            <span class="chip bg-color">Codeforces</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/01/21/Codeforces-1465C-Peaceful-Rooks-%E5%BB%BA%E6%A8%A1/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/10.jpg" class="responsive-img" alt="Codeforces-1465C Peaceful Rooks(建模)">
+                            
+                            <span class="card-title">Codeforces-1465C Peaceful Rooks(建模)</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                ProblemPortal
+
+Thoughts参考对于多个点的点集，若其中的任意一点，无论横向还是纵向一步移到主对角线上，都会和其他点形成冲突，那么我们此时对于这个点集中的任意一点多移动一步移开，就能将点集中的所有点移到主对角线上。（腾出这
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-21
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/ACM-Problem-Solving/" class="post-category">
+                                    ACM Problem Solving
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%80%9D%E7%BB%B4/">
+                            <span class="chip bg-color">思维</span>
+                        </a>
+                        
+                        <a href="/tags/Codeforces/">
+                            <span class="chip bg-color">Codeforces</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86%E5%88%A4%E7%8E%AF/">
+                            <span class="chip bg-color">并查集判环</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/01/21/Codeforces-1474C-Array-Destruction/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/18.jpg" class="responsive-img" alt="Codeforces-1474C Array Destruction">
+                            
+                            <span class="card-title">Codeforces-1474C Array Destruction</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                ProblemPortal
+
+Thoughts如果x中不包含剩下序列中的最大值，那么最大值将无法被删掉。时间复杂度有点玄学。。
+
+Accepted Code#include &lt;bits/stdc++.h>
+#define int lo
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-21
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/ACM-Problem-Solving/" class="post-category">
+                                    ACM Problem Solving
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%80%9D%E7%BB%B4/">
+                            <span class="chip bg-color">思维</span>
+                        </a>
+                        
+                        <a href="/tags/Codeforces/">
+                            <span class="chip bg-color">Codeforces</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/01/20/Codeforces-1473C-No-More-Inversions/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/12.jpg" class="responsive-img" alt="Codeforces-1473C No More Inversions(逆序对的性质)">
+                            
+                            <span class="card-title">Codeforces-1473C No More Inversions(逆序对的性质)</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                ProblemPortal
+
+Thoughts很容易求得a数组的逆序对数量为$(n-k)^{2}$所以我们可以知道b数组区间[k-n+k, n]的逆序对数量是固定的，也就是说明区间[1, k-n+k))不能存在逆序对，并且也不能与后面的元素
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-20
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/ACM-Problem-Solving/" class="post-category">
+                                    ACM Problem Solving
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%80%9D%E7%BB%B4/">
+                            <span class="chip bg-color">思维</span>
+                        </a>
+                        
+                        <a href="/tags/Codeforces/">
+                            <span class="chip bg-color">Codeforces</span>
+                        </a>
+                        
+                        <a href="/tags/%E9%80%86%E5%BA%8F%E5%AF%B9/">
+                            <span class="chip bg-color">逆序对</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/01/20/Codeforces-1474B-Different-Divisors/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/2.jpg" class="responsive-img" alt="Codeforces-1474B Different Divisors(质数分布)">
+                            
+                            <span class="card-title">Codeforces-1474B Different Divisors(质数分布)</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                ProblemPortal
+
+Thoughts#include &lt;bits/stdc++.h>
+#define int long long
+
+using namespace std;                          
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-20
                             </span>
                             <span class="publish-author">
                                 
@@ -405,12 +631,16 @@ Thoughts根据gcd分配律，gcd(a, b, c) = gcd(a, b-a, c-b), 推出所有a[]数
                             <span class="chip bg-color">数论</span>
                         </a>
                         
+                        <a href="/tags/%E6%80%9D%E7%BB%B4/">
+                            <span class="chip bg-color">思维</span>
+                        </a>
+                        
                         <a href="/tags/Codeforces/">
                             <span class="chip bg-color">Codeforces</span>
                         </a>
                         
-                        <a href="/tags/gcd/">
-                            <span class="chip bg-color">gcd</span>
+                        <a href="/tags/%E8%B4%A8%E6%95%B0/">
+                            <span class="chip bg-color">质数</span>
                         </a>
                         
                     </div>
@@ -420,32 +650,30 @@ Thoughts根据gcd分配律，gcd(a, b, c) = gcd(a, b-a, c-b), 推出所有a[]数
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/01/03/Codeforces-1463A-Dungeon/">
+                    <a href="/2021/01/19/Codeforces-1471B-Strange-List/">
                         <div class="card-image">
                             
                             
-                            <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/13.jpg" class="responsive-img" alt="Codeforces-1463A Dungeon">
+                            <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/11.jpg" class="responsive-img" alt="Codeforces-1471B Strange List">
                             
-                            <span class="card-title">Codeforces-1463A Dungeon</span>
+                            <span class="card-title">Codeforces-1471B Strange List</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Problem SolvingPortal
+                                ProblemPortal
+
+Thoughtsx最小为2，ai最大为1e9，所以最坏时间复杂度为O(N * 27)。
 
 Accepted Code#include &lt;bits/stdc++.h>
-
-using namespace std;
-
-int main()
-{                     
+#define int long lo
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-19
                             </span>
                             <span class="publish-author">
                                 
@@ -478,13 +706,13 @@ int main()
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/01/03/Codeforces-1463B-Find-The-Array/">
+                    <a href="/2021/01/18/Codeforces-1467C-Three-Bags/">
                         <div class="card-image">
                             
                             
-                            <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/1.jpg" class="responsive-img" alt="Codeforces-1463B Find The Array">
+                            <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/0.jpg" class="responsive-img" alt="Codeforces-1467C Three Bags(建模)">
                             
-                            <span class="card-title">Codeforces-1463B Find The Array</span>
+                            <span class="card-title">Codeforces-1467C Three Bags(建模)</span>
                         </div>
                     </a>
 
@@ -493,307 +721,17 @@ int main()
                             
                                 ProblemPortal
 
-Thoughts对于第二个要求，只要构造出1 x 1 x 1 x … 或者 x 1 x 1 x 1 … 这样的必然满足条件。因为两个数组对应数的差值绝对值是要小于a数组和/2的，所以有两种策略：b数组奇数位置和
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-03
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/ACM-Problem-Solving/" class="post-category">
-                                    ACM Problem Solving
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%80%9D%E7%BB%B4/">
-                            <span class="chip bg-color">思维</span>
-                        </a>
-                        
-                        <a href="/tags/Codeforces/">
-                            <span class="chip bg-color">Codeforces</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%9E%84%E9%80%A0/">
-                            <span class="chip bg-color">构造</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/01/03/Codeforces-1462E1-Close-Tuples-easy-version/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/15.jpg" class="responsive-img" alt="Codeforces-1462E1 Close Tuples (easy version)">
-                            
-                            <span class="card-title">Codeforces-1462E1 Close Tuples (easy version)</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                ProblemPortal
+Thoughts
 
 Accepted Code#include &lt;bits/stdc++.h>
 #define int long long
 
-using namespace std;
-
-const int N = 20001
+using namespace std;           
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-03
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/ACM-Problem-Solving/" class="post-category">
-                                    ACM Problem Solving
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%95%B0%E8%AE%BA/">
-                            <span class="chip bg-color">数论</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%80%9D%E7%BB%B4/">
-                            <span class="chip bg-color">思维</span>
-                        </a>
-                        
-                        <a href="/tags/Codeforces/">
-                            <span class="chip bg-color">Codeforces</span>
-                        </a>
-                        
-                        <a href="/tags/%E7%BB%84%E5%90%88%E6%95%B0/">
-                            <span class="chip bg-color">组合数</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/01/02/Codeforces-1462D-Add-to-Neighbour-and-Remove/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/21.jpg" class="responsive-img" alt="Codeforces-1462D Add to Neighbour and Remove">
-                            
-                            <span class="card-title">Codeforces-1462D Add to Neighbour and Remove</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                ProblemPortal
-
-Thoughts由于数据范围不大，我们可以枚举最终数的大小，预处理出前缀和。同时我们可以发现操作次数=序列数的个数-段数。设序列个数为n，有k组，每组有x1,x2,…,xk个数，每组需要xi-1次操作，操作总数
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-02
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/ACM-Problem-Solving/" class="post-category">
-                                    ACM Problem Solving
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%80%9D%E7%BB%B4/">
-                            <span class="chip bg-color">思维</span>
-                        </a>
-                        
-                        <a href="/tags/Codeforces/">
-                            <span class="chip bg-color">Codeforces</span>
-                        </a>
-                        
-                        <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/">
-                            <span class="chip bg-color">前缀和</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/12/15/Codeforces-1461C-Random-Events/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/21.jpg" class="responsive-img" alt="Codeforces-1461C Random Events">
-                            
-                            <span class="card-title">Codeforces-1461C Random Events</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                ProblemPortal
-
-Thoughts直接算能排序的概率很困难，那我们就算操作之后不能排序的概率p，再用1-p。那怎么让其无法排序呢？我们先将序列排序，找到排序序列和原序列最后一个不相同的位置pos，在小于pos的r都是没用的，所以
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-15
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/ACM-Problem-Solving/" class="post-category">
-                                    ACM Problem Solving
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%80%9D%E7%BB%B4/">
-                            <span class="chip bg-color">思维</span>
-                        </a>
-                        
-                        <a href="/tags/Codeforces/">
-                            <span class="chip bg-color">Codeforces</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/12/14/Codeforces-1450D-Rating-Compression/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/5.jpg" class="responsive-img" alt="Codeforces-1450D Rating Compression">
-                            
-                            <span class="card-title">Codeforces-1450D Rating Compression</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                ProblemPortal
-
-Thoughts按以下方法构造出来的序列才行，我们只需要判断序列是否如此就可了。
-
-首先特判一下当k=1和n时的答案，当k=1时，显然只有1到n的每个数字都出现一次才能输出1，否则输出0。当k=n时，显然只有当
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-14
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/ACM-Problem-Solving/" class="post-category">
-                                    ACM Problem Solving
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%80%9D%E7%BB%B4/">
-                            <span class="chip bg-color">思维</span>
-                        </a>
-                        
-                        <a href="/tags/Codeforces/">
-                            <span class="chip bg-color">Codeforces</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/12/14/Codeforces-1450C1-Errich-Tac-Toe-Hard-Version/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/12.jpg" class="responsive-img" alt="Codeforces-1450C2 Errich-Tac-Toe (Hard Version)">
-                            
-                            <span class="card-title">Codeforces-1450C2 Errich-Tac-Toe (Hard Version)</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                ProblemPortal
-
-ThoughtsPortal
-
-Accepted Code#include &lt;bits/stdc++.h>
-
-using namespace std;
-
-const int N = 305;
-int te
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-18
                             </span>
                             <span class="publish-author">
                                 
@@ -830,13 +768,13 @@ int te
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/12/13/Codeforces-1450C1-Errich-Tac-Toe-Easy-Version/">
+                    <a href="/2021/01/18/Codeforces-1467B-Hills-And-Valleys/">
                         <div class="card-image">
                             
                             
-                            <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/12.jpg" class="responsive-img" alt="Codeforces-1450C1 Errich-Tac-Toe (Easy Version)">
+                            <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/19.jpg" class="responsive-img" alt="Codeforces-1467B Hills And Valleys">
                             
-                            <span class="card-title">Codeforces-1450C1 Errich-Tac-Toe (Easy Version)</span>
+                            <span class="card-title">Codeforces-1467B Hills And Valleys</span>
                         </div>
                     </a>
 
@@ -845,16 +783,18 @@ int te
                             
                                 ProblemPortal
 
-Thoughts为什么对相同编号的X取反就能覆盖所有的winning，这就是构造题的魅力所在了，知道就能做。Portal
+Accepted Code这题就是分类讨论，且一定要细!
+#include &lt;bits/stdc++.h>
+#define int long long
 
-Accepted Code#include &lt;bits/stdc++.h>
+using namespace std;
 
-u
+con
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-18
                             </span>
                             <span class="publish-author">
                                 
@@ -880,8 +820,69 @@ u
                             <span class="chip bg-color">Codeforces</span>
                         </a>
                         
-                        <a href="/tags/%E6%9E%84%E9%80%A0/">
-                            <span class="chip bg-color">构造</span>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/01/17/Codeforces-1469A-Wizard-of-Orz/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/swust-zyh/swust-zyh.github.io/medias/featureimages/16.jpg" class="responsive-img" alt="Codeforces-1467A Wizard of Orz">
+                            
+                            <span class="card-title">Codeforces-1467A Wizard of Orz</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                ProblemPortal
+
+Accepted Code/*
+#include &lt;bits/stdc++.h>
+//#define w
+
+using namespace std;           
+
+int n;
+
+string 
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-17
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/ACM-Problem-Solving/" class="post-category">
+                                    ACM Problem Solving
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%80%9D%E7%BB%B4/">
+                            <span class="chip bg-color">思维</span>
+                        </a>
+                        
+                        <a href="/tags/Codeforces/">
+                            <span class="chip bg-color">Codeforces</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%89%93%E8%A1%A8/">
+                            <span class="chip bg-color">打表</span>
                         </a>
                         
                     </div>
@@ -906,7 +907,7 @@ u
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">3 / 10</div>
+            <div class="center-align b-text-gray">3 / 11</div>
         </div>
         <div class="col s6 m4 l4">
             
