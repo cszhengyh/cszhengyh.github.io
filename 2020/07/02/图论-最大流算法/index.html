@@ -490,14 +490,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-02-24
+                    2021-02-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.9k
+                    2.3k
                 </div>
                 
 
@@ -512,8 +512,16 @@
                 <h3 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h3><p>对于一张图, 我们对于每条边有两个特性, 单位时间能传输的最大流量(容量)和流量, 流量必须小于等于容量并且对于每个点来说, 流入的流量和与流出的流量和必须相等. 最大流算法就是解决图中一个点到另一个点的单位时间内能传输的最大流量. </p>
 <hr>
 <h3 id="重要概念与定理"><a href="#重要概念与定理" class="headerlink" title="重要概念与定理"></a>重要概念与定理</h3><ul>
+<li>流网络<blockquote>
+<p>网络流都是针对有向图来说的，对于一个有向图，图中的每条边都存在两个特性，容量与流量，且对于每一个点都满足入出流量守恒，每条边的流量都小于容量，且存在一个源点和汇点，使得源点流出的流量之和等于汇点流入的流量之和，这样的有向图，我们称之为流网络。</p>
+</blockquote>
+</li>
 <li>可行流<blockquote>
-<p>可行流是针对整个图来说的, 对于整个无向图来说, 所有弧满足流量必须小于等于容量并且使得其两端点合法(出入相等), 则我们称从起点流向终点的流量可行.</p>
+<p>可行流是针对整个图来说的, 对于整个无向图来说, 所有弧满足流量必须小于等于容量并且使得其端点合法(出入相等), 则我们称从起点流向终点的流量可行.</p>
+</blockquote>
+</li>
+<li>残流网络<blockquote>
+<p>对于原图的任一可行流，都存在一个残流网络与之一一对应。残流网络中，点集与流网络的点集相同，边集是流网络的两倍(原边集+反向边)。反向边的容量为对应可行流中的边的流量，正向边的容量为对应可行流边的容量-流量。</p>
 </blockquote>
 </li>
 <li>弧(<code>边(有方向的)</code>)<blockquote>
@@ -525,8 +533,8 @@
 </ol>
 </blockquote>
 </li>
-<li>增广链(基于图当前的一种可行流来说的)<blockquote>
-<p>定义: 对于一种可行流方案来说, 我们将有向图看作无向图，能够将起点和终点连通的一条线路我们称之为链。同时我们将这条链中，使得流量流向汇点的边称为正向弧，阻碍流量流向汇点的弧称为反向弧, 如果链中的所有正向弧都非饱和, 所有反向弧都非零, 则我们称这条链为增广链.<br><img src="https://img-blog.csdnimg.cn/20210224153154949.png?x-oss-process=image" alt="图解"><br>定理1: 对于一种可行流方案来说, 如果当前方案中还存在增广链, 那么其总流量将还能得到增广(<strong>正向弧加流量, 反向弧减流量</strong>, 所以要求正向弧非饱和, 反向弧非0), 使得其单位时间的流量更大.<br>定理2: 动态相互影响, 当当前可行流方案中的一条增广链被增广为非增广链时, 那么图中调整前的其他增广链, 现在就可能不是增广链了.<br>定理3: 当当前可行流方案中不再存在增广链, 那么该图起点的流出流量就必定为最大流.</p>
+<li>增广路径(基于当前的可行流或残流网络来说的)<blockquote>
+<p>定义: 对于当前的残流网络来说，能够从起点走到终点的一条路径，并且路径中的弧都非饱和，我们称之为增广路径。那么我们在增加增广路径中弧的流量时，若弧为原流网络中不存在的弧，那么对应原流网络中的弧为阻碍流量流动的弧，我们增加当前弧的流量，相当于是减少原流网络中弧的流量，即减少阻碍流量流动的流量。增加原流网络中本来就存在弧的流量，相当于就是增大流量，从而增大整体的流量。也就相当于课上说的<code>正加反减</code>。<br>定理1: 对于一种可行流方案来说, 如果当前方案中还存在增广路径, 那么其总流量将还能得到增广, 使得其单位时间的流量更大.<br>定理2: 动态相互影响, 当当前可行流方案中的一条增广路径被增广为非增广路径时, 那么图中调整前的其他增广路径, 现在就可能不是增广路径了.<br>定理3: 当当前可行流方案中不再存在增广路径, 那么该图起点的流出流量就必定为最大流.</p>
 </blockquote>
 </li>
 <li>截集与截量<blockquote>
@@ -543,7 +551,7 @@
 <li>标号法(EK算法)求解最小截集与最大流<blockquote>
 <ol>
 <li><strong>算法思想</strong>: 通过找当前可行流中的增广链并对其增广, 直到可行流中无增广链为止, 那么当前可行流为最大流, 且以已标记点为V1, 未标记点为V2, 由V1连向V2的所有边的集合即最小截集.</li>
-<li><strong>算法实现</strong>: 对于一般的最大流问题, 我们开始的每条边的流量是没有给出的, 只给出了容量, 然而标记算法求最大流, 是通过增广链增广的, 所以我们开始的图的流量必须保证是一个可行流, 那么我们怎么构造一个尽量接近最大流的初始可行流呢? 对于每条边赋予尽量大的合法流量或者把所有的边流量全初始化为0, 即零流(但是不推荐, 因为这样很远离最大可行流的流量, 当前可行流流量为0). 构造完之后, 对于每个走过的点我们记录下两个<strong>特性</strong>: 1. 最大可调整流量, 2. 其上一个点的编号, 首先我们将起点标号为(∞, Vs), 我们对标号点集的所有弧(<code>除开父边</code>)进行延伸, 检查是否存在一条未标记点流向它的非零反向弧或流出至未标记点的非饱和弧(<code>增广链中对弧的要求</code>). 有的话, 我们选择可以更快走到终点的点, 然后标记该点, 继续寻找点集的弧, 当点集的所有弧都不符合的时候, 此时的可行流为最大流, 否则直到终点被标记. 此时被标记的一条链则为一条增广链. 我们对其进行增广, 那么如何增广呢? 我们对每条弧的流量<strong>正加反减</strong>流量x, x为增广链中的所有可调整流量y(正向弧(<code>当前节点(已标号点集)指向未标号节点</code>): 容量 - 当前流量, 反向弧(<code>未标号节点指向当前节点</code>): 当前流量)的绝对值的最小值.</li>
+<li><strong>算法实现</strong>: 对于一般的最大流问题, 我们开始的每条边的流量是没有给出的, 只给出了容量, 然而标记算法求最大流, 是通过增广链增广的, 所以我们开始的图的流量必须保证是一个可行流, 那么我们怎么构造一个尽量接近最大流的初始可行流呢? 对于每条边赋予尽量大的合法流量或者<code>把所有的边流量全初始化为0, 即零流</code>(虽然这样很远离最大可行流的流量, 因为当前可行流流量为0，<strong>但代码实现中我们这样做</strong>). 构造完之后, 对于每个走过的点我们记录下当前该点增广链的上一个点的编号，同时维护出当前增广链的最大调整流量。首先我们将起点标记, 我们对标记点集的所有弧(<code>除开父边</code>)进行延伸, 检查是否存在一条流出至未标记点的非饱和弧(<code>增广路径中对弧的要求</code>) – 即<code>f[i]!=0&amp;&amp;!st[ver]</code>. 有的话, 我们选择最快到达终点的路径走过去，将其加入队列, 然后标记该点, 继续寻找点集的弧, 当点集的所有弧都不符合的时候, 此时的可行流为最大流, 否则直到终点被标记. 此时被标记的一条链则为一条增广链. 我们对其进行增广, <strong>那么如何增广呢? 我们对当前增广链的边增加d[T]的最大可调整流量(流量增大，当前容量将减少即f[i]-=d[T])，同时其反向边的容量对应增加，流量对应减少，得到一个新的残流网络，一个更大流量的可行流。</strong></li>
 </ol>
 </blockquote>
 </li>
@@ -552,7 +560,7 @@
 <h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>O(n^2 * m)</p>
 <pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-<span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">1010</span><span class="token punctuation">,</span> M <span class="token operator">=</span> <span class="token number">20010</span><span class="token punctuation">,</span> INF <span class="token operator">=</span> <span class="token number">1e8</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">1010</span><span class="token punctuation">,</span> M <span class="token operator">=</span> <span class="token number">20010</span><span class="token punctuation">,</span> INF <span class="token operator">=</span> <span class="token number">1e8</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// INF为容量最大值</span>
 
 <span class="token keyword">int</span> n<span class="token punctuation">,</span> m<span class="token punctuation">,</span> S<span class="token punctuation">,</span> T<span class="token punctuation">;</span>
 <span class="token keyword">int</span> h<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">,</span> e<span class="token punctuation">[</span>M<span class="token punctuation">]</span><span class="token punctuation">,</span> f<span class="token punctuation">[</span>M<span class="token punctuation">]</span><span class="token punctuation">,</span> ne<span class="token punctuation">[</span>M<span class="token punctuation">]</span><span class="token punctuation">,</span> idx<span class="token punctuation">;</span>
@@ -561,8 +569,8 @@
 
 <span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">,</span> <span class="token keyword">int</span> c<span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
-    e<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> b<span class="token punctuation">,</span> f<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> c<span class="token punctuation">,</span> ne<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> h<span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">,</span> h<span class="token punctuation">[</span>a<span class="token punctuation">]</span> <span class="token operator">=</span> idx <span class="token operator">++</span> <span class="token punctuation">;</span>
-    e<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> a<span class="token punctuation">,</span> f<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> ne<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> h<span class="token punctuation">[</span>b<span class="token punctuation">]</span><span class="token punctuation">,</span> h<span class="token punctuation">[</span>b<span class="token punctuation">]</span> <span class="token operator">=</span> idx <span class="token operator">++</span> <span class="token punctuation">;</span>
+    e<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> b<span class="token punctuation">,</span> f<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> c<span class="token punctuation">,</span> ne<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> h<span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">,</span> h<span class="token punctuation">[</span>a<span class="token punctuation">]</span> <span class="token operator">=</span> idx <span class="token operator">++</span> <span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 流量为0，零流</span>
+    e<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> a<span class="token punctuation">,</span> f<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> ne<span class="token punctuation">[</span>idx<span class="token punctuation">]</span> <span class="token operator">=</span> h<span class="token punctuation">[</span>b<span class="token punctuation">]</span><span class="token punctuation">,</span> h<span class="token punctuation">[</span>b<span class="token punctuation">]</span> <span class="token operator">=</span> idx <span class="token operator">++</span> <span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 容量为0相当于没有，也就是初始的可行流</span>
 <span class="token punctuation">}</span>
 
 <span class="token keyword">bool</span> <span class="token function">bfs</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -576,11 +584,11 @@
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> h<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token operator">~</span>i<span class="token punctuation">;</span> i <span class="token operator">=</span> ne<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
         <span class="token punctuation">{</span>
             <span class="token keyword">int</span> ver <span class="token operator">=</span> e<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>st<span class="token punctuation">[</span>ver<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>st<span class="token punctuation">[</span>ver<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 点未被标记且若该弧为正向弧流量即非饱和</span>
             <span class="token punctuation">{</span>
                 st<span class="token punctuation">[</span>ver<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-                d<span class="token punctuation">[</span>ver<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span>d<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">,</span> f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                pre<span class="token punctuation">[</span>ver<span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
+                d<span class="token punctuation">[</span>ver<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span>d<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">,</span> f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 得到增广链最大可调整流量</span>
+                pre<span class="token punctuation">[</span>ver<span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 存储增广链</span>
                 <span class="token keyword">if</span> <span class="token punctuation">(</span>ver <span class="token operator">==</span> T<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
                 q<span class="token punctuation">[</span> <span class="token operator">++</span> tt<span class="token punctuation">]</span> <span class="token operator">=</span> ver<span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
@@ -592,11 +600,12 @@
 <span class="token keyword">int</span> <span class="token function">EK</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
     <span class="token keyword">int</span> r <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// bfs一次，可行流变化一次</span>
     <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token function">bfs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
         r <span class="token operator">+</span><span class="token operator">=</span> d<span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">;</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> T<span class="token punctuation">;</span> i <span class="token operator">!=</span> S<span class="token punctuation">;</span> i <span class="token operator">=</span> e<span class="token punctuation">[</span>pre<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">^</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-            f<span class="token punctuation">[</span>pre<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">-</span><span class="token operator">=</span> d<span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">,</span> f<span class="token punctuation">[</span>pre<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">^</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span><span class="token operator">=</span> d<span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            f<span class="token punctuation">[</span>pre<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">-</span><span class="token operator">=</span> d<span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">,</span> f<span class="token punctuation">[</span>pre<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">^</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span><span class="token operator">=</span> d<span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 正向弧流过流量自然容量减少了，当f[i]==0，正向弧流量饱和</span>
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> r<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -613,7 +622,7 @@
     <span class="token punctuation">}</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> <span class="token function">EK</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <h3 id="现实应用"><a href="#现实应用" class="headerlink" title="现实应用"></a>现实应用</h3><ol>
 <li>计算机交互</li>
